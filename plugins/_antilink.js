@@ -4,7 +4,7 @@ if (m.isBaileys && m.fromMe)
 return !0
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
-let delet = m.key.participant
+let delet = m.key.participant 
 let bang = m.key.id
 const user = `@${m.sender.split`@`[0]}`;
 const groupAdmins = participants.filter(p => p.admin)

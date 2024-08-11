@@ -10,26 +10,26 @@ let win = ''
 let tie = false
 if (m.sender == room.p2 && /^(acc(ept)?|Aceptar|acerta|aceptar|gas|aceptare?|nao|Rechazar|rechazar|ga(k.)?bisa)/i.test(m.text) && m.isGroup && room.status == 'wait') {
 if (/^(tolak|gamau|rechazar|ga(k.)?bisa)/i.test(m.text)) {
-let textno = `${lenguajeGB['smsAvisoAG']()} @${room.p2.split`@`[0]} 𝙍𝙀𝘾𝙃𝘼𝙕𝙊 𝙀𝙇 𝙋𝙑𝙋, 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊 𝙎𝙀 𝘾𝘼𝙉𝘾𝙀𝙇𝘼`
+let textno = `⚠️@${room.p2.split`@`[0]} 𝙍𝙀𝘾𝙃𝘼𝙕𝙊 𝙀𝙇 𝙋𝙑𝙋, 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊 𝙎𝙀 𝘾𝘼𝙉𝘾𝙀𝙇𝘼`
 m.reply(textno, null, {mentions: this.parseMention(textno)})
 delete this.suit[room.id]
 return !0 }
 room.status = 'play' 
 room.asal = m.chat
 clearTimeout(room.waktu)
-let textplay = `${lenguajeGB['smsAvisoIIG']()}🎮 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊𝙎 𝘾𝙊𝙈𝙄𝙀𝙉𝙕𝘼, 𝙇𝘼𝙎 𝙊𝙋𝘾𝙄𝙊𝙉𝙀𝙎 𝙃𝘼𝙉 𝙎𝙄𝘿𝙊 𝙀𝙉𝙑𝙄𝘼𝘿𝙊𝙎 𝘼 𝙇𝙊𝙎 𝘾𝙃𝘼𝙏 𝙋𝙍𝙄𝙑𝘼𝘿𝙊 𝘿𝙀 @${room.p.split`@`[0]} 𝙔 @${room.p2.split`@`[0]}\n\n𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀𝙉 𝙐𝙉𝘼 𝙊𝙋𝘾𝙄𝙊𝙉 𝙀𝙉 𝙎𝙐𝙎 𝘾𝙃𝘼𝙏𝙎 𝙋𝙍𝙄𝙑𝘼𝘿𝙊 𝙍𝙀𝙎𝙋𝙀𝘾𝙏𝙄𝙑𝘼𝙈𝙀𝙉𝙏𝙀\n\n> *Elegir opción en wa.me/${conn.user.jid.split`@`[0]}*`
+let textplay = `🎮 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊𝙎 𝘾𝙊𝙈𝙄𝙀𝙉𝙕𝘼, 𝙇𝘼𝙎 𝙊𝙋𝘾𝙄𝙊𝙉𝙀𝙎 𝙃𝘼𝙉 𝙎𝙄𝘿𝙊 𝙀𝙉𝙑𝙄𝘼𝘿𝙊𝙎 𝘼 𝙇𝙊𝙎 𝘾𝙃𝘼𝙏 𝙋𝙍𝙄𝙑𝘼𝘿𝙊 𝘿𝙀 @${room.p.split`@`[0]} 𝙔 @${room.p2.split`@`[0]}\n\n𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀𝙉 𝙐𝙉𝘼 𝙊𝙋𝘾𝙄𝙊𝙉 𝙀𝙉 𝙎𝙐𝙎 𝘾𝙃𝘼𝙏𝙎 𝙋𝙍𝙄𝙑𝘼𝘿𝙊 𝙍𝙀𝙎𝙋𝙀𝘾𝙏𝙄𝙑𝘼𝙈𝙀𝙉𝙏𝙀\n\n> *Elegir opción en wa.me/${conn.user.jid.split`@`[0]}*`
 m.reply(textplay, m.chat, {mentions: this.parseMention(textplay)})
-let comienzop = `${lenguajeGB['smsAvisoIIG']()}𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀 𝙐𝙉𝘼 𝘿𝙀 𝙇𝘼𝙎 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀𝙎 𝙊𝙋𝘾𝙄𝙊𝙉𝙀𝙎\n\n> ღ Piedra\n> დ Papel\n> ღ Tijera\n\n> *Responda al mensaje con la opción*`
-let comienzop2 = `${lenguajeGB['smsAvisoIIG']()}𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀 𝙐𝙉𝘼 𝘿𝙀 𝙇𝘼𝙎 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀𝙎 𝙊𝙋𝘾𝙄𝙊𝙉𝙀𝙎\n\n> ღ Piedra\n> ღ Papel\n> ღ Tijera\n\n> *Responda al mensaje con la opción*`
+let comienzop = `⚠️ 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀 𝙐𝙉𝘼 𝘿𝙀 𝙇𝘼𝙎 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀𝙎 𝙊𝙋𝘾𝙄𝙊𝙉𝙀𝙎\n\n> ღ Piedra\n> დ Papel\n> ღ Tijera\n\n> *Responda al mensaje con la opción*`
+let comienzop2 = `⚠️ 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙎𝙀𝙇𝙀𝘾𝘾𝙄𝙊𝙉𝙀 𝙐𝙉𝘼 𝘿𝙀 𝙇𝘼𝙎 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀𝙎 𝙊𝙋𝘾𝙄𝙊𝙉𝙀𝙎\n\n> ღ Piedra\n> ღ Papel\n> ღ Tijera\n\n> *Responda al mensaje con la opción*`
    
 if (!room.pilih) this.sendMessage(room.p, { text: comienzop }, { quoted: fkontak })  
 if (!room.pilih2) this.sendMessage(room.p2, { text: comienzop2 }, { quoted: fkontak })
 room.waktu_milih = setTimeout(() => {
-let iniciativa = `${lenguajeGB['smsAvisoAG']()}𝙉𝙄𝙉𝙂𝙐𝙉 𝙅𝙐𝙂𝘼𝘿𝙊𝙍 𝙏𝙊𝙈𝙊 𝙇𝘼 𝙄𝙉𝙄𝘾𝙄𝘼𝙏𝙄𝙑𝘼 𝘿𝙀 𝙀𝙈𝙋𝙀𝙕𝘼𝙍 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊𝙎, 𝙀𝙇 𝙋𝙑𝙋 𝙎𝙀 𝘼𝙃 𝘾𝘼𝙉𝘾𝙀𝙇𝘼𝘿𝙊`                              
+let iniciativa = `⚠️ 𝙉𝙄𝙉𝙂𝙐𝙉 𝙅𝙐𝙂𝘼𝘿𝙊𝙍 𝙏𝙊𝙈𝙊 𝙇𝘼 𝙄𝙉𝙄𝘾𝙄𝘼𝙏𝙄𝙑𝘼 𝘿𝙀 𝙀𝙈𝙋𝙀𝙕𝘼𝙍 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊𝙎, 𝙀𝙇 𝙋𝙑𝙋 𝙎𝙀 𝘼𝙃 𝘾𝘼𝙉𝘾𝙀𝙇𝘼𝘿𝙊`                              
 if (!room.pilih && !room.pilih2) this.sendMessage(m.chat, { text: iniciativa }, { quoted: fkontak })
 else if (!room.pilih || !room.pilih2) {
 win = !room.pilih ? room.p2 : room.p 
-let textnull = `${lenguajeGB['smsAvisoAG']()} @${(room.pilih ? room.p2 : room.p).split`@`[0]} 𝙉𝙊 𝙀𝙇𝙀𝙂𝙄𝙎𝙏𝙀 𝙉𝙄𝙉𝙂𝙐𝙉𝘼 𝙊𝙋𝘾𝙄𝙊𝙉, 𝙁𝙄𝙉 𝘿𝙀𝙇 𝙋𝙑𝙋`
+let textnull = `⚠️ @${(room.pilih ? room.p2 : room.p).split`@`[0]} 𝙉𝙊 𝙀𝙇𝙀𝙂𝙄𝙎𝙏𝙀 𝙉𝙄𝙉𝙂𝙐𝙉𝘼 𝙊𝙋𝘾𝙄𝙊𝙉, 𝙁𝙄𝙉 𝘿𝙀𝙇 𝙋𝙑𝙋`
 this.sendMessage(m.chat, { text: textnull }, { quoted: fkontak }, { mentions: this.parseMention(textnull) })
 db.data.users[win == room.p ? room.p : room.p2].exp += room.poin
 db.data.users[win == room.p ? room.p : room.p2].exp += room.poin_bot

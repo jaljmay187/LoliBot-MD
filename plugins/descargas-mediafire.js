@@ -5,28 +5,42 @@ import {mediafiredl} from '@bochilteam/scraper';
 
 const handler = async (m, {conn, args, usedPrefix, command}) => {
 let sticker = 'https://qu.ax/Wdsb.webp'
-if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}*⚡ 𝙄𝙣𝙜𝙧𝙚𝙨𝙚 𝙪𝙣 𝙀𝙣𝙡𝙖𝙘𝙚 𝙫𝙖𝙡𝙞𝙙𝙤 𝙙𝙚𝙡 𝙢𝙚𝙙𝙞𝙖𝙛𝙞𝙧𝙚 𝙀𝙟:*\n${usedPrefix + command} https://www.mediafire.com/file/cv64tns6co3272q/Lolibot.zip/file`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})   
+if (!args[0]) return conn.reply(m.chat, `⚠️ 𝙄𝙣𝙜𝙧𝙚𝙨𝙚 𝙪𝙣 𝙀𝙣𝙡𝙖𝙘𝙚 𝙫𝙖𝙡𝙞𝙙𝙤 𝙙𝙚𝙡 𝙢𝙚𝙙𝙞𝙖𝙛𝙞𝙧𝙚 𝙀𝙟:*\n${usedPrefix + command} https://www.mediafire.com/file/cv64tns6co3272q/Lolibot.zip/file`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})   
+m.react(`🚀`) 
 try {
+const res = await fetch(`https://delirius-api-oficial.vercel.app/api/mediafire?url=${args[0]}`);
+if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+const data = await res.json();
+const fileData = data.data  
+let caption = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${fileData.filename}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃${fileData.size}\n\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${fileData.mime}\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ ᵉⁿ ˡᵒˢ ᵠᵘᵉ ᵉⁿᵛᶦᵒˢ ˢᵘˢ ᵃʳᶜʰᶦᵛᵒˢ`.trim();
+m.reply(caption) 
+await conn.sendFile(m.chat, fileData.link, fileData.filename, '', m, null, { mimetype: fileData.mime, asDocument: true });
+m.react(`✅`) 
+  } catch {
+    try {
 const resEX = await mediafiredl(args[0]);
-let caption = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${resEX.filename}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃${resEX.filesizeH}\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${resEX.ext}\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ ᵉⁿ ˡᵒˢ ᵠᵘᵉ ᵉⁿᵛᶦᵒˢ ˢᵘˢ ᵃʳᶜʰᶦᵛᵒˢ`.trim()
-conn.reply(m.chat, caption, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: '𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿', body: 'Super Bot WhatsApp', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
-await conn.sendFile(m.chat, resEX.url, resEX.filename, '', m, null, {mimetype: resEX.ext, asDocument: true});
-handler.limit = 3
-} catch {
-try {
-const res = await mediafireDl(args[0]);
-const {name, size, date, mime, link} = res;
-await conn.reply(m.chat, `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${name}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃ ${size}\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${mime}\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ ᵉⁿ ˡᵒˢ ᵠᵘᵉ ᵉⁿᵛᶦᵒˢ ˢᵘˢ ᵃʳᶜʰᶦᵛᵒˢ`, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: '𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿', body: 'Super Bot WhatsApp', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
-await conn.sendFile(m.chat, link, name, '', m, null, {mimetype: mime, asDocument: true});
-handler.limit = 3
-} catch (e) {
-conn.sendFile(m.chat, sticker, 'error.webp', '', m)
-console.log(e) 
-handler.limit = false
-}}}
+    const captionES = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${resEX.filename}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃ ${resEX.filesizeH}\n\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${resEX.ext}\n\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ ᵉⁿ ˡᵒˢ ᵠᵘᵉ ᵉⁿᵛᶦᵒˢ ˢᵘˢ ᵃʳᶜʰᶦᵛᵒˢ`.trim();
+    m.reply(captionES);
+    await conn.sendFile(m.chat, resEX.url, resEX.filename, '', m, null, {mimetype: resEX.ext, asDocument: true});
+m.react(`✅`)     
+  } catch {
+    try {
+      const res = await mediafireDl(args[0]);
+      const {name, size, date, mime, link} = res;
+      const caption = `┏━━『 𝐌𝐄𝐃𝐈𝐀𝐅𝐈𝐑𝐄 』━━•\n┃❥ 𝐍𝐨𝐦𝐛𝐫𝐞 :\n┃${name}\n┃——————«•»——————\n┃❥ 𝐏𝐞𝐬𝐨 :\n┃${size}\n\n┃——————«•»——————\n┃❥ 𝐓𝐢𝐩𝐨 :\n┃${mime}\n\n╰━━━⊰ 𓃠 ${vs} ⊱━━━━•\n\n> ⏳ ᴱˢᵖᵉʳᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ ᵉⁿ ˡᵒˢ ᵠᵘᵉ ᵉⁿᵛᶦᵒˢ ˢᵘˢ ᵃʳᶜʰᶦᵛᵒˢ`.trim();
+      await m.reply(caption);
+await conn.sendFile(m.chat, link, name, '', m, null, {mimetype: mime, asDocument: true});      
+m.react(`✅`) 
+} catch (error) {
+  console.error(error);
+ conn.sendFile(m.chat, sticker, 'error.webp', '', m, null, fake)
+ m.react(`❌`) 
+}}}}
+handler.help = ['mediafire', 'mediafiredl'];
+handler.tags = ['downloader'];
 handler.command = /^(mediafire|mediafiredl|dlmediafire)$/i
 handler.register = true
-//handler.limit = 3
+handler.limit = 3
 export default handler;
 
 async function mediafireDl(url) {

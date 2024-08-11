@@ -14,7 +14,7 @@ render: (literal, symbol) => `${literal} ${symbol}B`,
 let handler = async (m, { conn, usedPrefix, command, isRowner}) => {
 try {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let grupos = [nna, nn, nnn, nnntt]
+
 let _muptime
 if (process.send) {
 process.send('uptime')
@@ -59,35 +59,35 @@ const { key } = await conn.sendMessage(m.chat, {text: `𝘾𝙤𝙢𝙚𝙣𝙯�
 //await conn.reply(m.chat, `𝘾𝙤𝙢𝙚𝙣𝙯𝙖𝙣𝙙𝙤 𝙥𝙧𝙪𝙚𝙗𝙖 𝙙𝙚𝙡 𝙫𝙚𝙡𝙤𝙘𝙞𝙙𝙖𝙙 🚀...`, fkontak,  m)
 let neww = performance.now()
 let speed = neww - old
-let caption = `           \`⧼⧼⧼ ＶＥＬＯＣＩＤＡＤ 🚀 ⧽⧽⧽\`
+let caption = `*🚀 Velocidad 🚀*
 
-> 🚄 *${Math.round(neww - old)}* ms
-> 🚄 *${speed}* ms
+🚄 *${Math.round(neww - old)}* ms
+🚄 *${speed}* ms
 
-*${htjava}* \`ＴＩＥＭＰＯ ＡＣＴＩＶＯＳ\`
+*🕕 TIEMPO ACTIVOS*
 ${muptime}
 ${readMore}
-${htjava} \`C H A T S\`
-> ▢ *${groupsIn.length}* _Chats de grupo_
-> ▢ *${groupsIn.length}* _Grupos unidos_
-> ▢ *${groupsIn.length - groupsIn.length}* _Grupos abandonados_
-> ▢ *${chats.length - groupsIn.length}* _Chats Privados_
-> ▢ *${chats.length}* _Total Chats_
+*🟢 C H A T S*
+▢ *${groupsIn.length}* _Chats de grupo_
+▢ *${groupsIn.length}* _Grupos unidos_
+▢ *${groupsIn.length - groupsIn.length}* _Grupos abandonados_
+▢ *${chats.length - groupsIn.length}* _Chats Privados_
+▢ *${chats.length}* _Total Chats_
 
-${htjava} \`S E R V I D O R : S E R V E R\`
-> *🟢 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-> *🔵 RAM Libre:* ${format(freemem())}
+*🔰 S E R V I D O R : S E R V E R*
+*🟢 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
+*🔵 RAM Libre:* ${format(freemem())}
 
-> *💻 Plataforma :* \`\`\`${os.platform()}\`\`\`
-> *📡 Servidor :* _${os.hostname()}_
+*💻 Plataforma :* \`\`\`${os.platform()}\`\`\`
+*📡 Servidor :* _${os.hostname()}_
 ${readMore}
-\`NodeJS Uso de memoria : Memory Usage\`
+*NodeJS Uso de memoria : Memory Usage*
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
 
-${cpus[0] ? `\`Uso total de la CPU\`
+${cpus[0] ? `*Uso total de la CPU*
 ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
 
-\`CPU Core(s) Uso (${cpus.length} Core CPU)\`
+*CPU Core(s) Uso (${cpus.length} Core CPU)*
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
 `
 await conn.sendMessage(m.chat, {text: caption, edit: key});
@@ -95,11 +95,11 @@ await conn.sendMessage(m.chat, {text: caption, edit: key});
 ///await conn.sendButton(m.chat, wm, caption, gata.getRandom(), [['𝗠 𝗘 𝗡 𝗨 ☘️', '/menu']], m, dos.getRandom())
 } catch (e) {
 await conn.reply(m.chat, `${fg}*ALGO SALIÓ MAL.*\n\n\`\`\`REPORTE ESTE COMANDO ${usedPrefix + command} CON EL COMANDO ${usedPrefix}reporte\`\`\``, m)
+console.log(e) 
 }}
 handler.help = ['ping', 'speed']
-handler.tags = ['info', 'tools']
+handler.tags = ['main']
 handler.command = /^(ping|speed|velocidad|rapidez|velocity)$/i
-handler.register = true
 export default handler
 
 const more = String.fromCharCode(8206)

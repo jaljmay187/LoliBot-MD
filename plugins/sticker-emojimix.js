@@ -11,11 +11,9 @@ for (let res of anu.results) {
 let stiker = await sticker(false, res.url, global.packname, global.author)
 conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: ``, mediaType: 2, sourceUrl: [nna, nn, md, yt].getRandom(), thumbnail: imagen4}}}, { quoted: m })
 }} catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
 handler.help = ['emojimix'].map(v => v + ' emot1|emot2>')
-handler.tags = ['fun']
+handler.tags = ['sticker']
 handler.command = /^(emojimix|emogimix|combinaremojis|crearemoji|emojismix|emogismix)$/i
 handler.register = true
 export default handler

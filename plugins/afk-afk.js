@@ -1,14 +1,19 @@
-let handler = async (m, { text, usedPrefix }) => {
-let user = global.db.data.users[m.sender]
-if (!text) return m.reply(`${lenguajeGB['smsAvisoMG']()}𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝘾𝙊𝙇𝙊𝙌𝙐𝙀 𝙎𝙐 𝙈𝙊𝙏𝙄𝙑𝙊 𝙋𝘼𝙍𝘼 𝙀𝙎𝙏𝘼𝙍 𝘼𝙁𝙆\n\n𝙀𝙅𝙀𝙈𝙋𝙇𝙊:\n*${usedPrefix}afk Voy a comer*`)
-if (text.length < 10) return m.reply(`${lenguajeGB['smsAvisoMG']()}𝙀𝙇 𝙈𝙊𝙏𝙄𝙑𝙊 𝙀𝙎 𝙈𝙐𝙔 𝘾𝙊𝙍𝙏𝙊, 𝙈𝙄𝙉𝙄𝙈𝙊 10 𝘾𝘼𝙍𝘼́𝘾𝙏𝙀𝙍𝙀𝙎`)
-user.afk = + new Date
-user.afkReason = text
-m.reply(`${lenguajeGB['smsAfkM1A']()} *${conn.getName(m.sender)}* ${lenguajeGB['smsAfkM1B']()}${text ? ': ' + text : ''}
-`)}
-handler.help = ['afk [alasan]']
-handler.tags = ['main']
-handler.command = /^afk$/i 
+const handler = async (m, {text}) => {
+  const user = global.db.data.users[m.sender];
+  user.afk = + new Date;
+  user.afkReason = text;
+  m.reply(`╭━─━─━≪ 𝙰𝙺𝙵 ≫─━─━─━•
+┃  
+┃ 𝙴𝚂𝚃𝙴 𝚄𝚂𝚄𝙰𝚁𝙸𝙾𝚂: ${conn.getName(m.sender)} 
+┃ 𝙴𝚂𝚃𝙰 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙾. 
+┃ ≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋
+┃ 💤 𝙽𝙾 𝙻𝙾𝚂 𝙴𝚃𝙸𝚀𝚄𝙴𝚃𝙴 💤
+┃ ☣️ 𝙼𝙾𝚃𝙸𝚅𝙾𝚂 : ${text ? ': ' + text : 'paja'}*
+╰━─━─━─≪ 𝙰𝙺𝙵 ≫─━─━─━•`);
+};
+handler.help = ['afk [alasan]'];
+handler.tags = ['econ'];
+handler.command = /^afk$/i;
+handler.money = 75
 handler.register = true
-handler.money = 120
-export default handler
+export default handler;

@@ -70,9 +70,11 @@ ${sortedJoincount.slice(0, len).map(({ jid, joincount }, i) => `${i + 1}. ${part
 
 ${sortedMoney.slice(0, len).map(({ jid, money }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${money} 🪙*`).join`\n`}
 `.trim()
-await m.reply(text, null, { mentions: conn.parseMention(text) })}
+await m.reply(text, null, { mentions: conn.parseMention(text) })
+//conn.sendMessage(m.chat, {text: text, contextInfo:{ mentionedJid: conn.parseMention(text)}}, { quoted: m})
+}
 handler.help = ['top']
-handler.tags = ['xp']
+handler.tags = ['econ']
 handler.command = ['leaderboard', 'lb', 'top'] 
 handler.register = true
 handler.fail = null

@@ -7,7 +7,7 @@ var sum = member.length
 } else {
 var sum = text} 
 var total = 0
-var sider = []
+ var sider = []
 for(let i = 0; i < sum; i++) {
 let users = m.isGroup ? participants.find(u => u.id == member[i]) : {}
 if((typeof global.db.data.users[member[i]] == 'undefined' || global.db.data.users[member[i]].chat == 0) && !users.isAdmin && !users.isSuperAdmin) { 

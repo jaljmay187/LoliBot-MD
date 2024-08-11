@@ -1,19 +1,17 @@
 import {toAudio} from '../lib/converter.js';
 const handler = async (m, {conn, usedPrefix, command}) => {
-const q = m.quoted ? m.quoted : m;
-const mime = (q || q.msg).mimetype || q.mediaType || '';
-if (!/video|audio/.test(mime)) return conn.reply(m.chat, `[ ⚠️ ] 𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐚 𝐚 𝐮𝐧 𝐕𝐢𝐝𝐞𝐨 𝐨 𝐍𝐨𝐭𝐚 𝐝𝐞 𝐯𝐨𝐳 𝐩𝐚𝐫𝐚 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐫 𝐮𝐧 𝐬𝐮𝐝𝐢𝐨 𝐌𝐏𝟑 `, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}}) 
-try {
-const media = await q.download();
-if (!media) throw `[ ⚠️ ] 𝐒𝐞 𝐦𝐞 𝐜𝐚𝐲𝐨 𝐞𝐥 𝐢𝐧𝐭𝐞𝐧𝐞𝐭 👽, 𝐢𝐧𝐭𝐞𝐧𝐭𝐚 𝐧𝐮𝐞𝐯𝐚𝐦𝐞𝐧𝐭𝐞`
-const audio = await toAudio(media, 'mp4');
-if (!audio.data) throw `[ ⚠️ ] 𝐍𝐨 𝐬𝐞 𝐥𝐨𝐠𝐫𝐨 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐫 𝐬𝐮 𝐧𝐨𝐭𝐚 𝐝𝐞 𝐯𝐨𝐳 𝐚 𝐀𝐮𝐝𝐢𝐨 𝐌𝐏𝟑, 𝐢𝐧𝐭𝐞𝐧𝐭𝐞 𝐦𝐚𝐬 𝐭𝐚𝐫𝐝𝐞`
-conn.sendMessage(m.chat, {audio: audio.data, mimetype: 'audio/mpeg'}, {quoted: m});
-} catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)}}
-handler.alias = ['tomp3', 'toaudio'];
+  const q = m.quoted ? m.quoted : m;
+  const mime = (q || q.msg).mimetype || q.mediaType || '';
+  if (!/video|audio/.test(mime)) throw `*⚠️ ¿𝐘 𝐞𝐥 𝐯𝐢𝐝𝐞𝐨? 𝐑𝐞𝐬𝐩𝐨𝐧𝐝𝐞 𝐚 𝐮𝐧 𝐯𝐢𝐝𝐞𝐨 𝐨 𝐧𝐨𝐭𝐚 𝐝𝐞 𝐯𝐨𝐳 𝐩𝐚𝐫𝐚 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐫 𝐚 𝐌𝐏𝟑*`;
+  const media = await q.download();
+  if (!media) throw '*⚠️ 𝐎𝐂𝐔𝐑𝐑𝐈𝐎́ 𝐔𝐍 𝐄𝐑𝐑𝐎𝐑 𝐍𝐎𝐒𝐄 𝐐𝐔𝐄 𝐏𝐀𝐒𝐎? 𝐓𝐔 𝐒𝐀𝐁𝐄𝐒?* :)';
+m.reply(`Calmaoooo estoy procesando 😎\n\n> *Convirtiendo de MP4 a MP3 🔄*`) 
+  const audio = await toAudio(media, 'mp4');
+if (!audio.data) throw '*⚠️ 𝐓𝐑𝐄𝐌𝐄𝐍𝐃𝐎 ¿𝐍𝐨 𝐬𝐚𝐛𝐞𝐬 𝐮𝐬𝐚𝐫 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨? 𝐫𝐞𝐬𝐩𝐨𝐧𝐝𝐞𝐫 𝐚 𝐮𝐧 𝐯𝐢𝐝𝐞𝐨 𝐨 𝐧𝐨𝐭𝐚 𝐝𝐞 𝐯𝐨𝐳 𝐛𝐨𝐛𝐨*';
+  conn.sendMessage(m.chat, {audio: audio.data, mimetype: 'audio/mpeg', fake, }, {quoted: m});
+};
+handler.help = ['tomp3'];
+handler.tags = ['convertidor']
 handler.command = /^to(mp3|audio)$/i;
-handler.register = true 
+handler.register = true
 export default handler;

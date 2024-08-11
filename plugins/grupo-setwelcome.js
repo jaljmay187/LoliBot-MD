@@ -1,13 +1,11 @@
-let handler = async (m, { conn, text, isROwner, isOwner }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-if (text) {
-global.db.data.chats[m.chat].sWelcome = text
-conn.reply(m.chat, lenguajeGB.smsSetW(), fkontak, m)
-//conn.sendButton(m.chat, wm, lenguajeGB['smsSetW'](), null, [[lenguajeGB.smsConMenu(), `/menu`]], fkontak, m)
-} else throw `${lenguajeGB['smsSetW2']()}`
-}
-handler.command = ['setwelcome', 'bienvenida'] 
-handler.botAdmin = true
-handler.admin = true
-handler.group = true
-export default handler
+const handler = async (m, {conn, text, isROwner, isOwner}) => {
+  if (text) {
+    global.db.data.chats[m.chat].sWelcome = text;
+    m.reply('*[❗] 𝙼𝙴𝙽𝚂𝙰𝙹𝙴 𝙳𝙴 𝙱𝙸𝙽𝚅𝙴𝙽𝙸𝙳𝙰 𝙲𝙾𝙽𝙵𝙸𝙶𝚄𝚁𝙰𝙳𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙰𝙼𝙴𝙽𝚃𝙴 𝙿𝙰𝚁𝙰 𝙴𝚂𝚃𝙴 𝙶𝚁𝚄𝙿𝙾*');
+  } else throw `*[❗] 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝙼𝙴𝙽𝚂𝙰𝙹𝙴 𝙳𝙴 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙰 𝚀𝚄𝙴 𝙳𝙴𝚂𝙴𝙴 𝙰𝙶𝚁𝙴𝙶𝙰𝚁, 𝚄𝚂𝙴:*\n*- @user (mención)*\n*- @group (nombre de grupo)*\n*- @desc (description de grupo)*`;
+};
+handler.help = ['setwelcome <text>'];
+handler.tags = ['group'];
+handler.command = ['setwelcome'];
+handler.admin = true;
+export default handler;

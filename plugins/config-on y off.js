@@ -1,83 +1,47 @@
 import fetch from 'node-fetch'
 import fs from 'fs' 
-
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner, text }) => { 
 //try{
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let bot = global.db.data.settings[conn.user.jid] || {}
 let toUser = `${m.sender.split("@")[0]}`
 let aa = toUser + '@s.whatsapp.net'
-
-let titulo = [ 
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.welcome ? '✅' : '❌' : lenguajeGB.smsNoGg()}`, 
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.detect ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
-lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.autolevelup ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
-lenguajeGB.smsParaOw() + ' ' + `${bot.restrict ? '✅' : '❌'}`,    
-lenguajeGB.smsParaOw() + ' ' + `${bot.antiCall ? '✅' : '❌'}`,
-lenguajeGB.smsParaOw() + ' ' + `${bot.antiSpam ? '✅' : '❌'}`,	
-lenguajeGB.smsParaOw() + ' ' + `${global.opts['self'] ? '❌' : '✅'}`,    
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.modoadmin ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
-lenguajeGB.smsParaOw() + ' ' + `${global.opts['autoread'] ? '✅' : '❌'}`, 
-lenguajeGB.smsParaOw() + ' ' + `${bot.temporal ? '✅' : '❌'}`,      
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.stickers ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.autosticker ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
-lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.reaction ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
-lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.audios ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
-lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.modohorny ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antitoxic ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
-lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.antiver ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
-lenguajeGB.smsParaAdYOw() + ' ' + `${m.isGroup ? chat.delete ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antifake ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,  
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiLink ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiLink2 ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiTiktok ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiYoutube ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiTelegram ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiFacebook ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,   
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiInstagram ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
-lenguajeGB.smsParaAdmins() + ' ' + `${m.isGroup ? chat.antiTwitter ? '✅' : '❌' : lenguajeGB.smsNoGg()}`,    
-lenguajeGB.smsParaOw() + ' ' + `${global.opts['pconly'] ? '✅' : '❌'}`,  
-lenguajeGB.smsParaOw() + ' ' + `${global.opts['gconly'] ? '✅' : '❌'}`]
-
-let nombre = [ lenguajeGB.smsWel1(), lenguajeGB.smsDete1(), lenguajeGB.smsANivel1(), lenguajeGB.smsRestri1(), lenguajeGB.smsLlamar1(), lenguajeGB.smsAntiSp1(), lenguajeGB.smsModP1(), lenguajeGB.smsModAd1(), lenguajeGB.smsLect1(), lenguajeGB.smsTempo1(), lenguajeGB.smsStik1(), lenguajeGB.smsStickA1(), lenguajeGB.smsReacc1(), lenguajeGB.smsAudi1(), lenguajeGB.smsModHor1(), lenguajeGB.smsAntitoc1(), lenguajeGB.smsModOb1(), lenguajeGB.smsAntiEli1(), lenguajeGB.smsAntiInt1(), lenguajeGB.smsAntiE1(), lenguajeGB.smsAntiEE1(), lenguajeGB.smsAntiTT1(), lenguajeGB.smsAntiYT1(), lenguajeGB.smsAntiTEL1(), lenguajeGB.smsAntiFB1(),
-lenguajeGB.smsAntiIG1(), lenguajeGB.smsAntiTW1(), lenguajeGB.smsSOLOP1(), lenguajeGB.smsSOLOG1()]
-
-let descripción = [ lenguajeGB.smsWel2(), lenguajeGB.smsDete2(), lenguajeGB.smsANivel2(), lenguajeGB.smsRestri2(), lenguajeGB.smsLlamar2(), lenguajeGB.smsAntiSp2(), lenguajeGB.smsModP2(), lenguajeGB.smsModAd2(), lenguajeGB.smsLect2(), lenguajeGB.smsTempo2(), lenguajeGB.smsStik2(), lenguajeGB.smsStickA2(), lenguajeGB.smsReacc2(), lenguajeGB.smsAudi2(), lenguajeGB.smsModHor2(), lenguajeGB.smsAntitoc2(), lenguajeGB.smsModOb2(), lenguajeGB.smsAntiEli2(), lenguajeGB.smsAntiInt2(), lenguajeGB.smsAntiE2(), lenguajeGB.smsAntiEE2(), lenguajeGB.smsAntiTT2(), lenguajeGB.smsAntiYT2(), lenguajeGB.smsAntiTEL2(), lenguajeGB.smsAntiFB2(),
-lenguajeGB.smsAntiIG2(), lenguajeGB.smsAntiTW2(), lenguajeGB.smsSOLOP2(), lenguajeGB.smsSOLOG2()]
-
-let comando = [ "welcome", "detect", "autolevelup", "restrict", "anticall", "antispam", "public", "modoadmin", "autoread", "temporal", "stickers", "autosticker", "reaction", "audios", "modohorny", "antitoxic", "antiviewonce", "antidelete", "antifake", "antilink", "antilink2", "antitiktok", "antiyoutube", "antitelegram", "antifacebook",
-"antinstagram", "antitwitter", "pconly", "gconly"]
-
-let sections = Object.keys(titulo, nombre, descripción, comando).map((v, index) => ({ title: `${titulo[v]}`,
-rows: [{ title: `${nombre[v]} : ${command} ${comando[v]}`, description: `${1 + index}. ${descripción[v]}`, rowId: usedPrefix + command + ' ' + comando[v], }], }))
-
-let name = await conn.getName(m.sender)
-/*const listMessage = {
-text: `${lenguajeGB.smsConfi10()}`,
-footer: `╭━━━✦ *${lenguajeGB.smsConfi1()}* ✦━━━━⬣
-┃
-┃🌟 ${lenguajeGB.smsConfi2()} *${name}*
-┃
-${lenguajeGB.smsConfi3()}
-${lenguajeGB.smsConfi4()}
-┃
-${lenguajeGB.smsConfi5()}
-${lenguajeGB.smsConfi6()}
-${lenguajeGB.smsConfi7()}
-${lenguajeGB.smsConfi8()}
-${m.isGroup ? `┃` : `┃\n${lenguajeGB.smsConfi9()}`}
-╰━━━━━✦ *${vs}* ✦━━━━⬣
-${wm}`,
-title: null,
-buttonText: `⚙️ ${lenguajeGB.smsConfi1()} ⚙️`,
-sections }*/
-
+let listSections = []    
+listSections.push({ title: '『 FUNCIÓN PARA ADMINS 』',
+rows: [{ header: `🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} welcome`, description: `Mensaje de Bienvenida para nuevos Miembros en Grupos\n` }, 
+{ header: `🔗 ANTI ENLACES ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antilink`, description: `Eliminar Personas que envíen enlaces de Grupos de WhatsApp\n` },
+{ header: `🔗 ANTI ENLACES 2 ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antilink2`, description: `Eliminar Personas que envíen enlaces que contengan https\n` }, 
+{ header: `🔗 ANTI TRABA ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antitraba`, description: `El Bot detecta textos largos que podrian ser virus y causar lag en el chat y elimina al usuario.\n` }, 
+{ header: `🔗 ANTI TIKTOK ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antitiktok`, description: `Eliminar Personas que envíen enlaces de TikTok\n` }, 
+{ header: `🔗 ANTI YOUTUBE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antiyoutube`, description: `Eliminar Personas que envíen enlaces de YouTube\n` }, 
+{ header: `🔗 ANTI TELEGRAM ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antitelegram`, description: `Eliminar Personas que envíen enlaces de Telegram\n` }, 
+{ header: `🔗 ANTI FACEBOOK ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antifacebook`, description: `Eliminar Personas que envíen enlaces de Facebbok\n` }, 
+{ header: `🔗 ANTI INSTAGRAM ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antiinstagram`, description: `Eliminar Personas que envíen enlaces de Instagram\n` }, 
+{ header: `🔗 ANTI TWITTER ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antitwitter`, description: `Eliminar Personas que envíen enlaces de Twitter\n` }, 
+{ header: `🔗 ANTI DISCORD ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antidiscord`, description: `Eliminar Personas que envíen enlaces de Discord\n` }, 
+{ header: `🔗 ANTI TREADS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antithreads`, description: `Eliminar Personas que envíen enlaces de Threas\n` },
+{ header: `🟢 ANTIFAKE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antifake`, description: `ᶦⁿᵍʳᵉˢᵒ ᵈᵉ ⁿᵘᵐᵉʳᵒ ᶠᵃᵏᵉ (ᵛᶦʳᵗᵘᵃˡᵉˢ), ˢᵉʳᵃⁿ ᵉˣᵖˡᵘˢᵃᵈᵒ ᵃᵘᵗᵒᵐᵃ́ᵗᶦᶜᵃᵐᵉⁿᵗᵉ ᵈᵉˡ ᴳʳᵘᵖᵒ...\n` }, 
+{ header: `🔔 AVISOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} detect`, description: `Avisos de acciones dentro del Grupo\n` }, 
+{ header: `🪄 STICKERS AUTOMÁTICOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} autosticker`, description: `Los vídeos, Gif, imágenes, enlaces jpg o jpeg; Se convertirán en Stickers Automáticamente\n` }, 
+{ header: `🗑️ ANTI ELIMINAR ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} antidelete`, description: `Todo mensaje eliminado será reenviado al Chat o Grupo\n` }, 
+{ header: `🔞 MODO CALIENTE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} modohorny`, description: `Mostrar contenido para Adulto en los Chats\n` }, 
+{ header: `🔊 AUDIOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} audios`, description: `Habilitar el envio automático de Audios a todos\n` }, 
+{ header: `🆙 NIVEL AUTOMÁTICO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} autolevelup`, description: `Sube de nivel a todos de manera automática; (Aplica recompensas por subir de Nivel)\n` }, 
+{ header: `🙃 CHATBOT ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} chatbot`, description: `El bot empezar a hablar con todos el grupo.\n` }, 
+{ header: `🛂 MODO ADMIN ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `.${usedPrefix + command} modoadmin`, description: `Solo los Admins podrán usar el Bot en Grupos\n` }, 
+{ header: `『 FUNCIÓN SOLO PARA OWNER 』\n`, title: `🔰 ANTI PRIVADO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, id: `${usedPrefix + command} antiprivado`, description: `Bloquea a la persoma que usen el bot en privado\n` }, 
+{ header: `🚫 ANTI LLAMADAS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} anticall`, description: `Bloquea a Personas que hagan llamadas\n` }, 
+{ header: `⛔ RESTRINGIR ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} restrict`, description: `Habilitar función para agregar o eliminar personas en Grupos\n` }, 
+{ header: `⚜️ SOLO PRIVADOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} pconly`, description: `Permitir que solo se use en Chats Privados\n` }, 
+{ header: `⚜️ SOLO GRUPOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} gconly`, description: `Permitir que solo se use en Chats Grupales\n` }, 
+{ header: `✅ LECTURA AUTOMÁTICA ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} autoread`, description: `Dejar los mensajes o chats como Leídos.\n` }, 
+{ header: `🌐 MODO PÚBLICO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} public`, description: `Habilitar función para que todos puedan usar LoliBot.\n` }]
+});
+        
 let isEnable = /true|enable|(turn)?on|1/i.test(command)
 let type = (args[0] || '').toLowerCase()
 let isAll = false, isUser = false
-
 switch (type) {
 case 'welcome': case 'bienvenida':
 if (!m.isGroup) {
@@ -131,25 +95,7 @@ throw false
 }}
 chat.antiLink = isEnable
 break
-
-case 'game': case 'juegos': case 'fun':
-if (m.isGroup) {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
-throw false
-}}
-chat.game = isEnable          
-break
     
-case 'ruleta': case 'game2':
-if (m.isGroup) {
-if (!(isAdmin || isOwner)) {
-global.dfail('admin', m, conn)
-throw false
-}}
-chat.game2 = isEnable          
-break
-		
 case 'antilink2': case 'antienlace2':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
@@ -204,7 +150,7 @@ throw false
 chat.antiInstagram = isEnable 
 break
 		
-case 'antitwitter': case 'antitw': case 'antitwit': case 'antitwter': case 'antitwiter': case 'antiTwr':
+case 'antitwitter': case 'antitw': case 'antitwit': case 'antitwter': case 'antitwiter': case 'antix':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -212,8 +158,35 @@ throw false
 }}
 chat.antiTwitter = isEnable 
 break
+
+case 'antidiscord':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiDiscord = isEnable 
+break
+
+case 'antithreads':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiThreads = isEnable 
+break
+
+case 'antitwitch':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiTwitch = isEnable 
+break
     
-case 'modohorny': case 'modocaliente':
+case 'modohorny': case 'modocaliente': case 'modehorny':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -229,6 +202,24 @@ global.dfail('admin', m, conn)
 throw false
 }}
 chat.stickers = isEnable          
+break
+    
+case 'game': case 'juegos': case 'fun':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.game = isEnable          
+break
+    
+case 'ruleta': case 'game2':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.game2 = isEnable          
 break
     
 case 'temporal':
@@ -303,7 +294,7 @@ throw false
 chat.antifake = isEnable          
 break
 		
-case 'jadibotmd': case 'modojadibot': case 'serbotmd': case 'modoserbot': 
+case 'jadibot': case 'modojadibot': case 'serbot': case 'modoserbot': 
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
@@ -319,6 +310,15 @@ global.dfail('owner', m, conn)
 throw false
 }
 bot.restrict = isEnable
+break
+
+case 'antiporn': case 'antiporno':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiPorn = isEnable          
 break
     
 case 'nyimak':
@@ -357,8 +357,17 @@ throw false
 }
 bot.antiSpam = isEnable
 break
- 
-case 'modoadmin': case 'soloadmin':
+
+case 'antispam2':
+isAll = true
+if (!isOwner) {
+global.dfail('owner', m, conn)
+throw false
+}
+bot.antiSpam2 = isEnable
+break
+
+case 'modoadmin': case 'soloadmin': case 'modeadmin':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -384,8 +393,7 @@ throw false
 }
 global.opts['gconly'] = isEnable
 break
-
-case 'antiprivado':
+case 'antiprivado': case 'antiprivate':
 case 'privado':
 isAll = true
 if (!isROwner) {
@@ -394,9 +402,7 @@ throw false
 }
 bot.antiPrivate = isEnable
 break
-
-case 'antitrabas':
-case 'antitraba':
+case 'antitrabas': case 'antitraba': case 'antilag':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
@@ -404,7 +410,6 @@ throw false
 }}
 chat.antiTraba = isEnable
 break
-
 case 'simi': case 'chatbot':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
@@ -413,10 +418,7 @@ throw false
 }}
 chat.simi = isEnable
 break
-
-case 'modoia':
-case 'chatgpt':
-case 'ia':
+case 'modoia': case 'chatgpt': case 'ia':
 isAll = true;
 if (!isOwner) {
 global.dfail('owner', m, conn);
@@ -424,7 +426,7 @@ throw false;
 }
 bot.modoia = isEnable;      
 break;      
-
+      
 case 'swonly': case 'statusonly':
 isAll = true
 if (!isROwner) {
@@ -434,131 +436,29 @@ throw false
 global.opts['swonly'] = isEnable
 break
 default:
-if (!/[01]/.test(command)) return await conn.reply(m.chat, `   \`『 OPCIONES PARA ACTIVA/DESACTIVAR 』\`
+if (!/[01]/.test(command)) return await conn.sendList(m.chat, `\`⧼⧼⧼ ＣＯＮＦＩＧＵＲＡＣＩＯ́Ｎ ⧽⧽⧽\`
 
-> ${lenguajeGB.smsConfi5()}
-> ${lenguajeGB.smsConfi6()}
-> ${lenguajeGB.smsConfi7()}
-> ${lenguajeGB.smsConfi8()}
+> *Seleccione una opción de la lista*
+> *Para empezar a Configurar*
 
-     \`『 ${lenguajeGB.smsParaAdmins()}  』\`
-     
-* ${usedPrefix + command} welcome ${m.isGroup ? chat.welcome ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsWel2()}
-
-* ${usedPrefix + command} detec ${m.isGroup ? chat.detect ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsDete2()}
-
-* ${usedPrefix + command} autolevelup ${m.isGroup ? chat.autolevelup ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-* ${lenguajeGB.smsANivel2()}
-
-* ${usedPrefix + command} modoadmin ${m.isGroup ? chat.modoadmin ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-* ${lenguajeGB.smsModAd2()}
-
-* ${usedPrefix + command} stickers  ${m.isGroup ? chat.stickers ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsStik1()} ${lenguajeGB.smsStik2()}
-
-* ${usedPrefix + command} autosticker  ${m.isGroup ? chat.autosticker ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsStickA2()}
-
-* ${usedPrefix + command} reaction  ${m.isGroup ? chat.reaction ? '✅' : '❌' : lenguajeGB.smsNoGg()}    
-* ${lenguajeGB.smsReacc2()}
-
-* ${usedPrefix + command} audios ${m.isGroup ? chat.audios ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAudi2()}
-
-* ${usedPrefix + command} chatbot ${m.isGroup ? chat.simi ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* El bot empezará interactúa con los usuarios del Grupo
-
-* ${usedPrefix + command} modocaliente ${m.isGroup ? chat.modohorny ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-* Activa o desactiva los comandos +18 en el grupo.
-
-* ${usedPrefix + command} juegos ${m.isGroup ? chat.game ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* 👾 Activar / desactivar los Juegos
-
-* ${usedPrefix + command} game2 ${m.isGroup ? chat.ruleta ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* 👽 Activar / desactivar la ruletas rusa 
-
-* ${usedPrefix + command} delete ${m.isGroup ? chat.delete ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAntiEli2()}
-
-* ${usedPrefix + command} antifake ${m.isGroup ? chat.antifake ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAntiInt2()}
-
-* ${usedPrefix + command} antiLink  ${m.isGroup ? chat.antiLink ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAntiE2()}
-
-* ${usedPrefix + command} antiLink2 ${m.isGroup ? chat.antiLink2 ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAntiEE2()}
-
-* ${usedPrefix + command} antitraba ${m.isGroup ? chat.antiTraba ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* El Bot detecta textos largos que podrian ser virus y causar lag en el chat y elimina al usuario.
-
-* ${usedPrefix + command} antiTiktok ${m.isGroup ? chat.antiTiktok ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-* ${lenguajeGB.smsAntiTT2()}
-
-* ${usedPrefix + command} antiYoutube ${m.isGroup ? chat.antiYoutube ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAntiYT2()}
-
-* ${usedPrefix + command} antiTelegram ${m.isGroup ? chat.antiTelegram ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAntiTEL2()}
-
-* ${usedPrefix + command} antiFacebook ${m.isGroup ? chat.antiFacebook ? '✅' : '❌' : lenguajeGB.smsNoGg()} 
-* ${lenguajeGB.smsAntiFB2()}
-
-* ${usedPrefix + command} antiInstagram ${m.isGroup ? chat.antiInstagram ? '✅' : '❌' : lenguajeGB.smsNoGg()}
-* ${lenguajeGB.smsAntiIG2()}
-
-* ${usedPrefix + command} antiTwitter ${m.isGroup ? chat.antiTwitter ? '✅' : '❌' : lenguajeGB.smsNoGg()}   
-* ${lenguajeGB.smsAntiTW2()}
-
-┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-
-   \`『 ${lenguajeGB.smsParaOw()} 』\`
-
-* ${usedPrefix + command} restrict ${bot.restrict ? '✅' : '❌'}
-* ${lenguajeGB.smsRestri2()}
-
-* ${usedPrefix + command} antiprivado ${bot.antiPrivate ? '✅' : '❌'}
-* Prohibido usar el bot en privado
-
-* ${usedPrefix + command} antiCall ${bot.antiCall ? '✅' : '❌'}
-* ${lenguajeGB.smsLlamar2()}
-
-* ${usedPrefix + command} antiSpam ${bot.antiSpam ? '✅' : '❌'}
-* ${lenguajeGB.smsAntiSp2()}
-
-* ${usedPrefix + command} public ${global.opts['self'] ? '❌' : '✅'}
-* ${lenguajeGB.smsModP2()}
-
-* ${usedPrefix + command} autoread ${global.opts['autoread'] ? '✅' : '❌'}
-* ${lenguajeGB.smsLect1()} ${lenguajeGB.smsLect2()}
-
-* ${usedPrefix + command} temporal ${bot.temporal ? '✅' : '❌'}
-* ${lenguajeGB.smsTempo2()}
-
-* ${usedPrefix + command} pconly ${global.opts['pconly'] ? '✅' : '❌'}
-* ${lenguajeGB.smsSOLOP2()}
-
-* ${usedPrefix + command} gconly ${global.opts['gconly'] ? '✅' : '❌'}
-* ${lenguajeGB.smsSOLOG2()}`, fkontak, { mentions: [aa,] })
+● *Avisos de la Configuracion:*
+✅ ⇢ *Función Activada*
+❌ ⇢ *Función Desactivada*
+⚠️ ⇢ *Este Chat no es un Grupo`, wm, `AJUSTES`, null, listSections, m) //conn.sendMessage(m.chat, texto, {quoted: fkontak})	
 throw false
 }
-await conn.reply(m.chat, `╭┄〔 *${wm}* 〕┄⊱
+await conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
 ┆🗂️ ᴏᴘᴄɪᴏɴ: ${type} 
 ┆——————«•»——————
 ┆🎚️ ᴇsᴛᴀᴅᴏ: ${isEnable ? 'ᴀᴄᴛɪᴠᴀᴅᴏ' : 'ᴅᴇsᴀᴄᴛɪᴠᴀᴅᴏ'}
 ┆——————«•»——————
 ┆📣 ᴘᴀʀᴀ: ${isAll ? 'ᴇsᴛᴇ ʙᴏᴛ' : isUser ? '' : 'ᴇsᴛᴇ ᴄʜᴀᴛ'} 
-╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ`, fkontak, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
-title: `${wm}`,
-body: '', previewType: 0, thumbnail: imagen4, sourceUrl: [nna, nn, md, yt].getRandom()}}})} 
-
+╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ`, wm, null, [[`${isEnable ? `Desactivar` : `Activar`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)
+}; 
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
-handler.tags = ['group', 'owner']
+handler.tags = ['nable']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
-export default handler
+export default handler;
 
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)

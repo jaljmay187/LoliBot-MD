@@ -75,7 +75,7 @@ clearTimeout(timeout)
 delete confirmation[sender]
 }}
 handler.help = ['transfer'].map(v => v + ' [tipo] [cantidad] [@tag]')
-handler.tags = ['xp']
+handler.tags = ['econ'];
 handler.command = ['payxp', 'transfer', 'darxp', 'dar', 'enviar', 'transferir'] 
 handler.disabled = false
 handler.register = true

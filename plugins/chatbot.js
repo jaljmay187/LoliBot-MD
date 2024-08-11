@@ -6,18 +6,76 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
 const user = `@${m.sender.split`@`[0]}`;
+//let textodem = m.text;
 if (chat.isBanned) return
 let vn = 'https://qu.ax/eGdW.mp3'
 let bot = `${pickRandom([`*Hola ${user} soy un bot el que puedo ayudar? 👉👈*`, `Aqui estoy`, `bot tu abuela`, `que quiere?`, `No dispoble 🫣`, `Hola aqui estoy soy tu botsito sexy el que puedo ayudar uwu`])}
 `.trim()//`
+let txt = `*\`💫 Te presentamos un nuevo hosting: "Infinity-Wa" host propios 😎\`*
 
-if (/^bot$/i.test(m.text) && !chat.isBanned) { 
-conn.sendPresenceUpdate('recording', m.chat)    
-await conn.sendMessage(m.chat, {text: bot, mentions: [m.sender]}, {quoted: fkontak})
-//conn.sendButton(m.chat, '*𝙃𝙤𝙡𝙖 𝙨𝙤𝙮 𝙪𝙣 𝙗𝙤𝙩 𝙚𝙡 𝙦𝙪𝙚 𝙥𝙪𝙚𝙙𝙤 𝙖𝙮𝙪𝙙𝙖𝙧? 👉👈*', wm, [['𝙼𝙴𝙽𝚄', `#menu`]], 'conversation', { sendEphemeral: true, quoted: m })
-conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', seconds: '4556', ptt: true, sendEphemeral: true, quoted: m })}
+*¿Muy lento tu nokia y necesitas tener activo tu bot 24/7?*
 
-/*if (/^infinity|infinityWa|infohost|hosting$/i.test(m.text)) {
+> *Te tenemos la mejor opción para mantener activo tu bot 24/7, a precios muy accesibles. Es muy barato y todos pueden comprar.*
+
+🟢 \`\`\`Información del Host\`\`\`
+
+*💻 Dashboard:*
+https://dash.infinitywa-host.com
+
+⚙️ *Panel*
+https://panel.infinitywa-host.com
+
+💥 *Grupo Support whatsapp:*
+https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV
+
+*🟣 Discord:*
+https://discord.com/invite/vgfpe4Nwd8
+
+🧡 *Canal de WhatsApp:*
+${nna}
+
+🛍️ *Método de pago:*
+*• Mercado pago, alías:* OficialGB
+*• Naranja x, alías:* infinity-host
+*• Yape (Perú) :* +51948705559
+*• Uala, CVU:* 0000007900204304075982
+*• Pago con tarjeta:* wa.me/390684003755
+
+*• Link de pago:*
+• _link.mercadopago.com.ar/h0sting_
+• _https://payment-link.astropay.com/RbMJ_
+*• Patreon:*_patreon.com/Infinity_wa_hosting_
+*• Kofi:* _https://ko-fi.com/infinitywa_
+
+🗣📲 *Contacto:*
+• https://www.facebook.com/elrebelde21
+• wa.me/573147616444` 
+
+if (m.text.includes(`Bot`) || m.text.includes(`bot`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
+if (m.text.includes('jadibot') || m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('instalarbot') ||  m.text.includes('infobot')) return
+try {
+await conn.sendPresenceUpdate('composing', m.chat)
+let gpt = await fetch(`https://deliriusapi-official.vercel.app/tools/simi?text=${m.text}`)
+let res = await gpt.json()
+await m.reply(res.data.message)
+} catch {
+try {
+if (text.includes('Hola')) text = text.replace('Hola', 'Hello');
+if (text.includes('hola')) text = text.replace('hola', 'Hello');
+if (text.includes('HOLA')) text = text.replace('HOLA', 'HELLO');
+const reis = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=' + text);
+const resu = await reis.json();
+const nama = m.pushName || '1';
+const api = await fetch('http://api.brainshop.ai/get?bid=153868&key=rcKonOgrUFmn5usX&uid=' + nama + '&msg=' + resu[0][0][0]);
+const res = await api.json();
+const reis2 = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=' + res.cnt);
+const resu2 = await reis2.json();
+m.reply(resu2[0][0][0]);
+} catch {
+return m.reply([`Simsimi esta durmiendo no molesta 🥱`, `Callarte`, `Api simsimi caida`, `Simsimi esta ocupado cojieron con tu hermana vuelva mas tarde 🥵`, `NO MOLESTE PUTA`, `No hay señar`, `No estoy disponible`].getRandom());
+}}}
+
+if (/^infinity|infinityWa|infohost|hosting$/i.test(m.text)) {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
 forwardingScore: 9999999,
@@ -30,7 +88,7 @@ body: `✅ Hosting de Calidad`,
 "previewType": "PHOTO",
 thumbnailUrl: 'https://qu.ax/EQTd.jpg', 
 sourceUrl: nna}}}, { quoted: m})
-} */
+} 
     
 if (/^todo bien$/i.test(m.text) ) { //sin prefijo
 conn.reply(m.chat, `𝑩𝒊𝒆𝒏 𝒄𝒂𝒑𝒐 😎 𝒚 𝒕𝒖`, m) }

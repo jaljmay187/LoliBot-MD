@@ -17,7 +17,8 @@ let texto = `
 *ღ _${result.text}_*
 
 *╰━━・☘️・━━━━・☘️・━━⬣*`
-conn.sendFile(m.chat, img,  'error.jpg', texto.trim(), fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})} 
+conn.sendButton(m.chat, texto.trim(), botname, img, [['✨ 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 ✨', `/${command}`]], null, null, m)}
+//conn.sendFile(m.chat, img,  'error.jpg', texto.trim(), fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})} 
 //await conn.sendButton(m.chat, texto.trim(), wm, img, [[lenguajeGB.smsConj(), `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
   
 if (command == 'frase2' || command == 'phrase2') { 
@@ -32,13 +33,14 @@ let texto = `
 *ღ ${frase2.text}*
 
 *╰━━・☘️・━━━━・☘️・━━⬣*`
-conn.sendFile(m.chat, img,  'error.jpg', texto.trim(), fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})} 
+conn.sendButton(m.chat, texto.trim(), botname, img, [['✨ 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 ✨', `/${command}`]], null, null, m)} 
 //await conn.sendButton(m.chat, texto.trim(), wm, img, [[lenguajeGB.smsFras(), `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)} 
 } catch (e) {
-await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+await m.react(`❌`) 
 console.log(e)}  
 }
+handler.help = ['consejo']
+handler.tags = ['downloader']
 handler.command = ['consejo', 'advice', 'frase2', 'phrase2']
 handler.register = true
 handler.limit = 1

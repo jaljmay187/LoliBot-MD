@@ -39,6 +39,8 @@ let str = `\`『 ＣＵＥＮＴＡＳ ＯＦＩＣＩＡＬＥＳ 』\`
 ${wm}`
 await conn.reply(m.chat, str, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})}
 //conn.sendFile(m.chat, media, 'loli.mp4', str, fkontak)}
-handler.command = /^cuentasoficiales|cuentas|cuentaofc$/i
+handler.help = ['cuentaoficial']
+handler.tags = ['main']
+handler.command = /^cuentasoficiales|cuentas|cuentaofc|cuentaoficial$/i
 handler.register = true
 export default handler

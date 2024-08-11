@@ -9,14 +9,14 @@ let MessageType = (await import(global.baileys)).default
 let handler = async (m, { conn, text, command, usedPrefix, args }) => { 
 let pp = 'https://telegra.ph/file/c7924bf0e0d839290cc51.jpg'
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }  
-if (!db.data.chats[m.chat].game) return m.reply(`${lenguajeGB['smsAvisoAG']()}𝙇𝙊𝙎 𝙅𝙐𝙀𝙂𝙊𝙎 𝙀𝙎𝙏𝘼𝙎 𝘿𝙀𝙎𝘼𝘾𝙏𝙄𝙑𝘼𝘿𝙊 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊, 𝙎𝙄 𝙀𝙍𝙀𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀 𝘼𝘾𝙏𝙄𝙑𝘼𝙍𝙇𝙊 𝘾𝙊𝙉 : #on juegos`) 
 try {
 
 if (command == 'ppt' || command == 'pvp' || command == 'suit' || command == 'suitpvp') {
 const time = global.db.data.users[m.sender].wait + 10000;
 if (new Date - global.db.data.users[m.sender].wait < 10000) throw `*🕓 𝙃𝙚𝙮, 𝙀𝙨𝙥𝙚𝙧𝙖 ${Math.floor((time - new Date()) / 1000)} 𝙖𝙣𝙩𝙚𝙨 𝙙𝙚 𝙪𝙨𝙖𝙧 𝙤𝙩𝙧𝙤𝙨 𝙘𝙤𝙢𝙖𝙣𝙙𝙤*\n\n*ᴺᵒ ʰᵃᵍᵃⁿ ˢᵖᵃᵐ*`
-let textquien = `${lenguajeGB['smsAvisoMG']()}𝐏𝐢𝐞𝐝𝐫𝐚 🗿, 𝐏𝐚𝐩𝐞𝐥 📄 𝐨 𝐓𝐢𝐣𝐞𝐫𝐚 ✂️\n\n👾 𝙅𝙪𝙜𝙖𝙧 𝙪𝙣 𝙋𝙋𝙏 𝙘𝙤𝙣 𝙚𝙡 𝙗𝙤𝙩 𝙪𝙨𝙖𝙧 𝙡𝙤𝙨 𝙨𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚𝙨 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 :\n• ${usedPrefix + command} piedra\n• ${usedPrefix + command} papel\n• ${usedPrefix + command} tijera\n\n🕹 𝙅𝙪𝙜𝙖𝙧 𝙪𝙣 𝙋𝙋𝙏 𝙘𝙤𝙣 𝙪𝙣 𝙪𝙨𝙪𝙖𝙧𝙞𝙤, 𝙀𝙩𝙞𝙦𝙪𝙚𝙩𝙖𝙧𝙡𝙤 𝙚𝙟𝙚𝙢𝙥𝙡𝙤 :\n${usedPrefix + command} @0`
-if (!m.mentionedJid[0] && !args[0]) return m.reply(textquien, m.chat, {mentions: conn.parseMention(textquien)}, {quoted: fkontak })
+let textquien = `𝐏𝐢𝐞𝐝𝐫𝐚 🗿, 𝐏𝐚𝐩𝐞𝐥 📄 𝐨 𝐓𝐢𝐣𝐞𝐫𝐚 ✂️\n\n👾 𝙅𝙪𝙜𝙖𝙧 𝙪𝙣 𝙋𝙋𝙏 𝙘𝙤𝙣 𝙚𝙡 𝙗𝙤𝙩 𝙪𝙨𝙖𝙧 𝙡𝙤𝙨 𝙨𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚𝙨 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 :\n• ${usedPrefix + command} piedra\n• ${usedPrefix + command} papel\n• ${usedPrefix + command} tijera\n\n🕹 𝙅𝙪𝙜𝙖𝙧 𝙪𝙣 𝙋𝙋𝙏 𝙘𝙤𝙣 𝙪𝙣 𝙪𝙨𝙪𝙖𝙧𝙞𝙤, 𝙀𝙩𝙞𝙦𝙪𝙚𝙩𝙖𝙧𝙡𝙤 𝙚𝙟𝙚𝙢𝙥𝙡𝙤 :\n${usedPrefix + command} @0`
+if (!m.mentionedJid[0] && !args[0]) return conn.sendButton(m.chat, textquien, wm, pp, [['Piedra 🗿', `${usedPrefix + command} piedra`], ['Papel 📄', `${usedPrefix + command} papel`], ['Tijera ✂️', `${usedPrefix + command} tijera`]], m)
+//m.reply(textquien, m.chat, {mentions: conn.parseMention(textquien)}, {quoted: fkontak })
 let who
 if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
 else who = m.sender 
@@ -72,10 +72,10 @@ let money = global.db.data.users[m.sender].money -= 300
 conn.reply(m.chat, `\`「 𝙃𝘼 𝙋𝙀𝙍𝘿𝙄𝘿𝙊! 🤡 」\`\n\n👉 Tu: ${text}\n👉 El Bot : ${astro}\n❌ Premios : -${money} coins`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: name, body: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})}
 }
 
-if (Object.values(conn.suit).find(room => room.id.startsWith('suit') && [room.p, room.p2].includes(m.sender))) return m.reply(`${lenguajeGB['smsAvisoAG']()}𝙏𝙚𝙧𝙢𝙞𝙣𝙖 𝙩𝙪 𝙥𝙖𝙧𝙩𝙞𝙙𝙖 𝙖𝙣𝙩𝙚𝙨 𝙙𝙚 𝙞𝙣𝙞𝙘𝙞𝙖 𝙤𝙩𝙧𝙖`) 
-if (Object.values(conn.suit).find(room => room.id.startsWith('suit') && [room.p, room.p2].includes(m.mentionedJid[0]))) return m.reply(`${lenguajeGB['smsAvisoIIG']()}𝙇𝙖 𝙥𝙚𝙧𝙨𝙤𝙣𝙖 𝙖 𝙡𝙖 𝙦𝙪𝙚 𝙦𝙪𝙞𝙚𝙧𝙚𝙨 𝙙𝙚𝙨𝙖𝙛𝙞𝙖𝙧 𝙖 𝙪𝙣 𝙚𝙨𝙩𝙖 𝙟𝙪𝙜𝙖𝙣𝙙𝙤 𝙤𝙩𝙧𝙖 𝙥𝙖𝙧𝙩𝙞𝙙𝙖, 𝙀𝙨𝙥𝙚𝙧𝙚 𝙖 𝙦𝙪𝙚 𝙩𝙚𝙧𝙢𝙞𝙣𝙚 𝙙𝙚 𝙟𝙪𝙜𝙖𝙧`) 
+if (Object.values(conn.suit).find(room => room.id.startsWith('suit') && [room.p, room.p2].includes(m.sender))) return m.reply(`⚠️ 𝙏𝙚𝙧𝙢𝙞𝙣𝙖 𝙩𝙪 𝙥𝙖𝙧𝙩𝙞𝙙𝙖 𝙖𝙣𝙩𝙚𝙨 𝙙𝙚 𝙞𝙣𝙞𝙘𝙞𝙖 𝙤𝙩𝙧𝙖`) 
+if (Object.values(conn.suit).find(room => room.id.startsWith('suit') && [room.p, room.p2].includes(m.mentionedJid[0]))) return m.reply(`⚠️𝙇𝙖 𝙥𝙚𝙧𝙨𝙤𝙣𝙖 𝙖 𝙡𝙖 𝙦𝙪𝙚 𝙦𝙪𝙞𝙚𝙧𝙚𝙨 𝙙𝙚𝙨𝙖𝙛𝙞𝙖𝙧 𝙖 𝙪𝙣 𝙚𝙨𝙩𝙖 𝙟𝙪𝙜𝙖𝙣𝙙𝙤 𝙤𝙩𝙧𝙖 𝙥𝙖𝙧𝙩𝙞𝙙𝙖, 𝙀𝙨𝙥𝙚𝙧𝙚 𝙖 𝙦𝙪𝙚 𝙩𝙚𝙧𝙢𝙞𝙣𝙚 𝙙𝙚 𝙟𝙪𝙜𝙖𝙧`) 
 let id = 'suit_' + new Date() * 1
-let caption = `${lenguajeGB['smsAvisoIIG']()}🎮👾 𝙂𝘼𝙈𝙀𝙎 - 𝙋𝙑𝙋 - 𝙂𝘼𝙈𝙀𝙎 🎮👾\n\n@${m.sender.split`@`[0]} 𝘿𝙀𝙎𝘼𝙁𝙄𝘼 𝘼 @${m.mentionedJid[0].split`@`[0]} 𝘼 𝙐𝙉 (𝙋𝙑𝙋) 𝘿𝙀 𝙋𝙄𝙀𝘿𝙍𝘼, 𝙋𝘼𝙋𝙀𝙇 𝙊 𝙏𝙄𝙅𝙀𝙍𝘼\n\n> _*Escribe (aceptar) para aceptar*_\n> _*Escribe (rechazar) para rechazar*_`
+let caption = `🎮👾 𝙂𝘼𝙈𝙀𝙎 - 𝙋𝙑𝙋 - 𝙂𝘼𝙈𝙀𝙎 🎮👾\n\n@${m.sender.split`@`[0]} 𝘿𝙀𝙎𝘼𝙁𝙄𝘼 𝘼 @${m.mentionedJid[0].split`@`[0]} 𝘼 𝙐𝙉 (𝙋𝙑𝙋) 𝘿𝙀 𝙋𝙄𝙀𝘿𝙍𝘼, 𝙋𝘼𝙋𝙀𝙇 𝙊 𝙏𝙄𝙅𝙀𝙍𝘼\n\n> _*Escribe (aceptar) para aceptar*_\n> _*Escribe (rechazar) para rechazar*_`
 let imgplaygame = `https://www.merca2.es/wp-content/uploads/2020/05/Piedra-papel-o-tijera-0003318_1584-825x259.jpeg`
 conn.suit[id] = {
 chat: await conn.sendMessage(m.chat, { text: caption, mentions: [m.sender, m.mentionedJid]}),
@@ -85,7 +85,7 @@ p: m.sender,
 p2: m.mentionedJid[0],
 status: 'wait',
 waktu: setTimeout(() => {
-if (conn.suit[id]) conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}⏳ 𝙏𝙄𝙀𝙈𝙋𝙊 𝘿𝙀 𝙀𝙎𝙋𝙀𝙍𝘼 𝙁𝙄𝙉𝘼𝙇𝙄𝙕𝘼𝘿𝙊, 𝙀𝙇 𝙋𝙑𝙋 𝙎𝙀 𝘾𝘼𝙉𝘾𝙀𝙇𝘼 𝙋𝙊𝙍 𝙁𝘼𝙇𝙏𝘼 𝘿𝙀 𝙍𝙀𝙎𝙋𝙐𝙀𝙎𝙏𝘼`, m)
+if (conn.suit[id]) conn.reply(m.chat, `⏳ 𝙏𝙄𝙀𝙈𝙋𝙊 𝘿𝙀 𝙀𝙎𝙋𝙀𝙍𝘼 𝙁𝙄𝙉𝘼𝙇𝙄𝙕𝘼𝘿𝙊, 𝙀𝙇 𝙋𝙑𝙋 𝙎𝙀 𝘾𝘼𝙉𝘾𝙀𝙇𝘼 𝙋𝙊𝙍 𝙁𝘼𝙇𝙏𝘼 𝘿𝙀 𝙍𝙀𝙎𝙋𝙐𝙀𝙎𝙏𝘼`, m)
 delete conn.suit[id]}, timeout), poin, poin_lose, poin_bot, timeout
 }}
 
@@ -101,10 +101,10 @@ let apuesta = parseInt(args[0])
 
 let users = global.db.data.users[m.sender]
 
-if (apuesta < 10) return m.reply(`${lenguajeGB['smsAvisoAG']()}𝐃𝐞𝐛𝐞𝐬 𝐝𝐞𝐥 𝐚𝐩𝐨𝐬𝐭𝐚𝐫 𝐮𝐧 𝐦𝐢𝐧𝐢𝐦𝐨𝐬 𝐝𝐞 *10*`) 
+if (apuesta < 10) return m.reply(`⚠️ 𝐃𝐞𝐛𝐞𝐬 𝐝𝐞𝐥 𝐚𝐩𝐨𝐬𝐭𝐚𝐫 𝐮𝐧 𝐦𝐢𝐧𝐢𝐦𝐨𝐬 𝐝𝐞 *10*`) 
 
 if (users.exp < apuesta) {
-return m.reply(`${lenguajeGB['smsAvisoFG']()}𝐍𝒐 𝒂𝒍𝒄𝒂𝒏𝒛𝒂 𝒑𝒂𝒓𝒂 𝒂𝒑𝒐𝒔𝒕𝒂𝒓 𝒆𝒙𝒑, 𝒍𝒆 𝒓𝒆𝒄𝒐𝒎𝒊𝒆𝒏𝒅𝒐 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒖𝒂𝒓 𝒄𝒐𝒏 𝒆𝒍 𝒃𝒐𝒕 𝒑𝒂𝒓𝒂 𝒐𝒃𝒕𝒆𝒏𝒆𝒓 𝒎𝒂́𝒔 𝒓𝒆𝒄𝒖𝒓𝒔𝒐𝒔`) 
+return m.reply(`⚠️ 𝐍𝒐 𝒂𝒍𝒄𝒂𝒏𝒛𝒂 𝒑𝒂𝒓𝒂 𝒂𝒑𝒐𝒔𝒕𝒂𝒓 𝒆𝒙𝒑, 𝒍𝒆 𝒓𝒆𝒄𝒐𝒎𝒊𝒆𝒏𝒅𝒐 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒖𝒂𝒓 𝒄𝒐𝒏 𝒆𝒍 𝒃𝒐𝒕 𝒑𝒂𝒓𝒂 𝒐𝒃𝒕𝒆𝒏𝒆𝒓 𝒎𝒂́𝒔 𝒓𝒆𝒄𝒖𝒓𝒔𝒐𝒔`) 
 }
 if (command == 'slot1') {
 let time = global.db.data.users[m.sender].lastslot + 60000
@@ -179,7 +179,7 @@ ${x[2]} : ${y[2]} : ${z[2]}
 🎰 |   *SLOTS*   | 🎰\n\n${end}`, edit: key}, {quoted: m})}
 
 if (users.money < apuesta)  { 
-throw `${lenguajeGB['smsAvisoFG']()}𝐍𝐨 𝐚𝐥𝐜𝐚𝐧𝐳𝐚 𝐩𝐚𝐫𝐚 𝐚𝐩𝐨𝐬𝐭𝐚𝐫 𝐋𝐨𝐥𝐢𝐂𝐨𝐢𝐧𝐬, 𝐥𝐞 𝐫𝐞𝐜𝐨𝐦𝐢𝐞𝐧𝐝𝐨 𝐢𝐧𝐭𝐞𝐫𝐚𝐜𝐭𝐮𝐚𝐫 𝐜𝐨𝐧 𝐞𝐥 𝐛𝐨𝐭 𝐩𝐚𝐫𝐚 𝐨𝐛𝐭𝐞𝐧𝐞𝐫 𝐫𝐞𝐜𝐮𝐫𝐬𝐨𝐬`    
+throw `⚠️ 𝐍𝐨 𝐚𝐥𝐜𝐚𝐧𝐳𝐚 𝐩𝐚𝐫𝐚 𝐚𝐩𝐨𝐬𝐭𝐚𝐫 𝐋𝐨𝐥𝐢𝐂𝐨𝐢𝐧𝐬, 𝐥𝐞 𝐫𝐞𝐜𝐨𝐦𝐢𝐞𝐧𝐝𝐨 𝐢𝐧𝐭𝐞𝐫𝐚𝐜𝐭𝐮𝐚𝐫 𝐜𝐨𝐧 𝐞𝐥 𝐛𝐨𝐭 𝐩𝐚𝐫𝐚 𝐨𝐛𝐭𝐞𝐧𝐞𝐫 𝐫𝐞𝐜𝐮𝐫𝐬𝐨𝐬`    
 }
 if (command == 'slot2') {
 let time = global.db.data.users[m.sender].lastslot + 60000
@@ -253,7 +253,7 @@ ${x[2]} : ${y[2]} : ${z[2]}
 🎰 |   *SLOTS*   | 🎰\n\n${end}`, edit: key}, {quoted: m})}
 
 if (users.limit < apuesta) {  
-throw `${lenguajeGB['smsAvisoFG']()}𝑵𝒐 𝒂𝒍𝒄𝒂𝒏𝒛𝒂 𝒑𝒂𝒓𝒂 𝒂𝒑𝒐𝒔𝒕𝒂𝒓 𝑫𝒊𝒂𝒎𝒂𝒏𝒕𝒆, 𝒍𝒆 𝒓𝒆𝒄𝒐𝒎𝒊𝒆𝒏𝒅𝒐 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒖𝒂𝒓 𝒄𝒐𝒏 𝒆𝒍 𝒃𝒐𝒕 𝒑𝒂𝒓𝒂 𝒐𝒃𝒕𝒆𝒏𝒆𝒓 𝒎𝒂́𝒔 𝒓𝒆𝒄𝒖𝒓𝒔𝒐𝒔`    
+throw `⚠️ 𝑵𝒐 𝒂𝒍𝒄𝒂𝒏𝒛𝒂 𝒑𝒂𝒓𝒂 𝒂𝒑𝒐𝒔𝒕𝒂𝒓 𝑫𝒊𝒂𝒎𝒂𝒏𝒕𝒆, 𝒍𝒆 𝒓𝒆𝒄𝒐𝒎𝒊𝒆𝒏𝒅𝒐 𝒊𝒏𝒕𝒆𝒓𝒂𝒄𝒕𝒖𝒂𝒓 𝒄𝒐𝒏 𝒆𝒍 𝒃𝒐𝒕 𝒑𝒂𝒓𝒂 𝒐𝒃𝒕𝒆𝒏𝒆𝒓 𝒎𝒂́𝒔 𝒓𝒆𝒄𝒖𝒓𝒔𝒐𝒔`    
 }
 if (command == 'slot3') {
 let time = global.db.data.users[m.sender].lastslot + 30000
@@ -327,20 +327,21 @@ ${x[2]} : ${y[2]} : ${z[2]}
 🎰 |   *SLOTS*   | 🎰\n\n${end}`, edit: key}, {quoted: m})}
         
 if (command == 'slot') {       
-await conn.reply(m.chat, `*Elija en que apostará ${apuesta}*\n\n⚡ Exp:\n${usedPrefix}slot1 ${apuesta}\n\n🪙 Lolicoins:\n${usedPrefix}slot2 ${apuesta}\n\n💎 diamante:\n${usedPrefix}slot3 ${apuesta}`, m)}
+await conn.sendButton(m.chat, `*Elija en que apostará ${apuesta}*`, botname, null, [['⚡ Exp', `.slot1 ${apuesta}`], ['🪙 Lolicoins', `.slot2 ${apuesta}`], ['💎 diamante', `.slot3 ${apuesta}`]], null, null, m)   
+}
         
 if (command == 'apostar') {       
-await conn.reply(m.chat, `*Elija en que apostará ${apuesta}*\n\n⚡Exp:\n${usedPrefix}slot1 ${apuesta}\n🪙 Lolicoins:\n${usedPrefix}slot2 ${apuesta}\n💎 Diamante:\n${usedPrefix}slot3 ${apuesta}`, m)}
+await conn.sendButton(m.chat, `*Elija en que apostará ${apuesta}*`, botname, null, [['⚡ Exp', `.slot1 ${apuesta}`], ['🪙 Lolicoins', `.slot2 ${apuesta}`], ['💎 diamante', `.slot3 ${apuesta}`]], null, null, m)}
 }
 
 if (command == 'tictactoe' || command == 'ttc' || command == 'ttt' || command == 'xo') {
 conn.game = conn.game ? conn.game : {}
-if (Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return m.reply(`${lenguajeGB['smsAvisoAG']()}𝙏𝙤𝙙𝙖𝙫𝙞𝙖 𝙖𝙡𝙜𝙪𝙞𝙚𝙣 𝙚𝙨𝙩𝙖 𝙟𝙪𝙜𝙖𝙣𝙙𝙤 𝙚𝙣 𝙡𝙖 𝙨𝙖𝙡𝙖 𝙨𝙞 𝙦𝙪𝙞𝙚𝙧𝙚 𝙖𝙗𝙖𝙣𝙙𝙤𝙣𝙖𝙧 𝙚𝙨𝙘𝙧𝙞𝙗𝙖 *salir*\n𝙏𝙖𝙢𝙗𝙞𝙚𝙣 𝙥𝙪𝙚𝙙𝙚𝙨 𝙚𝙡𝙞𝙢𝙞𝙣𝙖𝙧 𝙡𝙖 𝙨𝙖𝙡𝙖 𝙪𝙨𝙖𝙣𝙙𝙤 𝙚𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 *${usedPrefix}delttt*`) 
-if (!text) return m.reply(`*${lenguajeGB['smsAvisoFG']()}𝘿𝙚𝙗𝙚 𝙙𝙚 𝙖𝙜𝙧𝙚𝙜𝙖 𝙪𝙣 𝙣𝙤𝙢𝙗𝙧𝙚 𝙖 𝙡𝙖 𝙨𝙖𝙡𝙖\n𝙀𝙟𝙚𝙢𝙥𝙡𝙤\n${usedPrefix + command} Sala bot*`) 
+if (Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return m.reply(`⚠️ 𝙏𝙤𝙙𝙖𝙫𝙞𝙖 𝙖𝙡𝙜𝙪𝙞𝙚𝙣 𝙚𝙨𝙩𝙖 𝙟𝙪𝙜𝙖𝙣𝙙𝙤 𝙚𝙣 𝙡𝙖 𝙨𝙖𝙡𝙖 𝙨𝙞 𝙦𝙪𝙞𝙚𝙧𝙚 𝙖𝙗𝙖𝙣𝙙𝙤𝙣𝙖𝙧 𝙚𝙨𝙘𝙧𝙞𝙗𝙖 *salir*\n𝙏𝙖𝙢𝙗𝙞𝙚𝙣 𝙥𝙪𝙚𝙙𝙚𝙨 𝙚𝙡𝙞𝙢𝙞𝙣𝙖𝙧 𝙡𝙖 𝙨𝙖𝙡𝙖 𝙪𝙨𝙖𝙣𝙙𝙤 𝙚𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 *${usedPrefix}delttt*`) 
+if (!text) return m.reply(`*⚠️ 𝘿𝙚𝙗𝙚 𝙙𝙚 𝙖𝙜𝙧𝙚𝙜𝙖 𝙪𝙣 𝙣𝙤𝙢𝙗𝙧𝙚 𝙖 𝙡𝙖 𝙨𝙖𝙡𝙖\n𝙀𝙟𝙚𝙢𝙥𝙡𝙤\n${usedPrefix + command} Sala bot*`) 
 let room = Object.values(conn.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true)) 
 if (room) {
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝘼𝙡𝙜𝙪𝙞𝙚𝙣 𝙨𝙚 𝙝𝙖 𝙪𝙣𝙞𝙙𝙤 𝙖 𝙡𝙖 𝙨𝙖𝙡𝙖 *${text}*\n𝙔𝙖 𝙥𝙪𝙚𝙙𝙚𝙣 𝙟𝙪𝙜𝙖𝙧!! 😼`, fkontak, m)
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoRG']()}⭕️ *Clásico Juego del Gato, 3 en raya o tateti* ❌\n\n*¿Cómo jugar?*\n_Responde al Juego con un Número, el mensaje debe contener la posiscion en la que quieras estar (1,2,3,4,5,6,7,8,9)_`, fkontak, m)
+await conn.reply(m.chat, `⚠️ 𝘼𝙡𝙜𝙪𝙞𝙚𝙣 𝙨𝙚 𝙝𝙖 𝙪𝙣𝙞𝙙𝙤 𝙖 𝙡𝙖 𝙨𝙖𝙡𝙖 *${text}*\n𝙔𝙖 𝙥𝙪𝙚𝙙𝙚𝙣 𝙟𝙪𝙜𝙖𝙧!! 😼`, fkontak, m)
+await conn.reply(m.chat, `⭕️ *Clásico Juego del Gato, 3 en raya o tateti* ❌\n\n*¿Cómo jugar?*\n_Responde al Juego con un Número, el mensaje debe contener la posiscion en la que quieras estar (1,2,3,4,5,6,7,8,9)_`, fkontak, m)
 
 room.o = m.chat
 room.game.playerO = m.sender
@@ -416,7 +417,7 @@ let mode = args[0].toLowerCase()
 if (!(mode in modes)) return await conn.reply(m.chat, mat, fkontak, m) 
 
 let id = m.chat
-if (id in global.math) return conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}*ᴛᴏᴅᴀᴠɪᴀ ʜᴀʏ ᴘʀᴇɢᴜɴᴛᴀ sɪɴ ʀᴇsᴘᴏɴᴅᴇʀ ᴇʟ ᴇsᴛᴇ ᴄʜᴀᴛ!!*`, global.math[id][0])
+if (id in global.math) return conn.reply(m.chat, `⚠️ *ᴛᴏᴅᴀᴠɪᴀ ʜᴀʏ ᴘʀᴇɢᴜɴᴛᴀ sɪɴ ʀᴇsᴘᴏɴᴅᴇʀ ᴇʟ ᴇsᴛᴇ ᴄʜᴀᴛ!!*`, global.math[id][0])
 //let ii = global.db.data.users[m.sender].limit += 10 math.dia
 let math = genMath(mode)
 global.math[id] = [
@@ -432,7 +433,7 @@ math, 4,
   
 //await conn.reply(m.chat, `⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️𝙍𝙀𝙎𝙋𝙊𝙉𝘿𝘼 𝘼𝙇 𝙈𝙀𝙉𝙎𝘼𝙅𝙀 𝘿𝙀 𝘼𝙍𝙍𝙄𝘽𝘼 𝘾𝙊𝙉 𝙇𝘼 𝙍𝙀𝙎𝙋𝙐𝙀𝙎𝙏𝘼\n\n𝘼𝙉𝙎𝙒𝙀𝙍 𝙏𝙃𝙀 𝙈𝙀𝙎𝙎𝘼𝙂𝙀 𝘼𝘽𝙊𝙑𝙀 𝙏𝙊 𝙆𝙉𝙊𝙒 𝙔𝙊𝙐𝙍 𝘼𝙉𝙎𝙒𝙀𝙍\n\n${wm}`, fkontak, m), math, 4,
 setTimeout(() => { 
-if (global.math[id]) conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}sᴇ ᴀᴄᴀʙᴏ ᴇʟ ᴛɪᴇᴍᴘᴏ ʟᴀ ʀᴇsᴘᴜᴇsᴛᴀ ᴇs *${math.result}*`, global.math[id][0])
+if (global.math[id]) conn.reply(m.chat, `⌛ sᴇ ᴀᴄᴀʙᴏ ᴇʟ ᴛɪᴇᴍᴘᴏ ʟᴀ ʀᴇsᴘᴜᴇsᴛᴀ ᴇs *${math.result}*`, global.math[id][0])
 delete global.math[id]
 }, math.time)
 ]
@@ -441,16 +442,15 @@ global.db.data.users[m.sender].wait = new Date * 1
 
 if (command == 'delttt' || command == 'deltt' || command == 'delxo' || command == 'deltictactoe') {
 let room = Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))
-if (room == undefined) return await conn.reply(m.chat, `${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝙀𝙎𝙏𝘼𝙎 𝙀𝙉 𝙉𝙄𝙉𝙂𝙐𝙉𝘼 𝙋𝘼𝙍𝙏𝙄𝘿𝘼 𝙀𝙉 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊 𝙏𝙍𝙀𝙎 𝙀𝙉 𝙍𝘼𝙔𝘼\n\n💫 𝙄𝙉𝙄𝘾𝙄𝘼𝙍 𝙋𝘼𝙍𝙏𝙄𝘿𝘼 (${usedPrefix}ttt sala nueva)`, fkontak, m)
+if (room == undefined) return await conn.reply(m.chat, `⚠️ 𝙉𝙊 𝙀𝙎𝙏𝘼𝙎 𝙀𝙉 𝙉𝙄𝙉𝙂𝙐𝙉𝘼 𝙋𝘼𝙍𝙏𝙄𝘿𝘼 𝙀𝙉 𝙀𝙇 𝙅𝙐𝙀𝙂𝙊 𝙏𝙍𝙀𝙎 𝙀𝙉 𝙍𝘼𝙔𝘼\n\n💫 𝙄𝙉𝙄𝘾𝙄𝘼𝙍 𝙋𝘼𝙍𝙏𝙄𝘿𝘼 (${usedPrefix}ttt sala nueva)`, fkontak, m)
 delete conn.game[room.id]
 
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙇𝘼 𝙎𝘼𝙇𝘼 𝙏𝙍𝙀𝙎 𝙀𝙉 𝙍𝘼𝙔𝘼 𝙁𝙐𝙀 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝘼`, fkontak, m)
+await conn.reply(m.chat, `⚠️ 𝙇𝘼 𝙎𝘼𝙇𝘼 𝙏𝙍𝙀𝙎 𝙀𝙉 𝙍𝘼𝙔𝘼 𝙁𝙐𝙀 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘿𝘼`, fkontak, m)
 }} catch (e) {
 //await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
-handler.help = ['ppt']
-handler.tags = ['games']
+handler.help = ["ppt", "suitpvp", "pvp", "slot", "apostar", "tictactoe", "ttt", "math", "matemáticas", "delttt"];
+handler.tags = ['game'];
 handler.command = /^(ppt|suitpvp|suit|pvp|moneda|suert|currency|luck|cara|Method|slot|apostar|slot1|slot2|slot3|tictactoe|ttc|ttt|xo|math|mates|matemáticas|delttt|deltt|delxo|deltictactoe)$/i
 handler.group = true
 handler.game = true

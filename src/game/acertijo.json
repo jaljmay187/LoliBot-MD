@@ -414,5 +414,65 @@
     {
        "question": "No lo puedes ver, pero no puedes vivir sin él. ¿Qué es?",
        "response": "El aire"
+}, 
+{
+       "question": "¿Qué pasa si arrojas una piedra blanca al mar Rojo?",
+       "response": "Se moja"
+}, 
+{
+       "question": "Tengo ciudades, pero no casas. Tengo montañas, pero no árboles. Tengo agua, pero no peces. ¿Qué soy?",
+       "response": "Un mapa"
+}, 
+{
+       "question": "¿Qué sube y baja, pero siempre permanece en el mismo lugar?",
+       "response": "Las escaleras"
+}, 
+{
+       "question": "¿Qué puedes atrapar pero no lanzar?",
+       "response": "Un resfriado"
+}, 
+{
+       "question": "¿Qué tiene cuatro patas, pero no puede caminar?",
+       "response": "Una mesa"
+}, 
+{
+       "question": "Me rompo si me nombras, ¿qué soy?",
+       "response": "El silencio"
+}, 
+{
+       "question": "¿Qué palabra empieza con (e), termina con (e) y contiene una letra?",
+       "response": "Sobre"
+}, 
+{
+       "question": "Si un gallo pone un huevo en la cima de una montaña, ¿hacia dónde caerá el huevo?",
+       "response": "Los gallos no ponen huevos"
+}, 
+{
+       "question": "¿Qué es algo que puedes romper sin tocarlo?",
+       "response": "Una promesa"
+}, 
+{
+       "question": "¿Qué es lo que cuanto más se seca, más moja?",
+       "response": "Una toalla"
+}, 
+{
+       "question": " ¿Qué palabra se escribe incorrectamente en el diccionario?",
+       "response": "Incorrectamente"
+}, 
+{
+       "question": "¿Qué pasa si arrojas una piedra blanca al mar Rojo?",
+       "response": "Se moja"
+}, 
+{
+       "question": "¿Qué cosa puede hacerte llorar y reír al mismo tiempo?",
+       "response": "Una cebolla"
+}, 
+{
+       "question": "¿Qué cosa puede escribir, pero no puede leer?",
+       "response": "Una pluma"
+}, 
+{
+       "question": "¿Qué es algo que tiene muchas palabras, pero nunca habla?",
+       "response": "Un libro"
 }
 ]

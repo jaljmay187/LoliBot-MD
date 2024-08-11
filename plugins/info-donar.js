@@ -64,6 +64,8 @@ mentionedJid:[m.sender],
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ ☘️', '/menu']
 ], m,)}*/
 }
+handler.help = ['donar']
+handler.tags = ['main']
 handler.command = /^dona(te|si)|donar|apoyar|paypal|donating|creditos$/i
 handler.exp = 80
 handler.register = true

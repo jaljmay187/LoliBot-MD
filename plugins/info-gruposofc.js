@@ -24,11 +24,11 @@ https://atom.bio/lolibot
 
 *⇶⃤꙰𝑬𝒏𝒍𝒂𝒄𝒆 𝒍𝒐𝒍𝒊𝒃𝒐𝒕ꦿ⃟⃢*
 *${nnnttt}*`.trim() 
-conn.reply(m.chat, info, m, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
-title: `${wm}`,
-body: '', previewType: 0, thumbnail: imagen2, sourceUrl: nna}}})
+conn.reply(m.chat, info, m) 
 //conn.fakeReply(m.chat, info, '0@s.whatsapp.net', '𝙏𝙝𝙚-𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿', 'status@broadcast')
 }
+handler.help = ['grupos']
+handler.tags = ['main']
 handler.command = /^linkgc|grupos|gruposgatabot|gatabotgrupos|gruposdegatabot|groupofc|gruposgb|grupogb|groupgb$/i
+handler.register = true 
 export default handler

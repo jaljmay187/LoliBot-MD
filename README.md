@@ -1,11 +1,11 @@
-> <b>🚀 Versión actual: 1.6.5</b>
+> <b>🚀 Versión actual: 1.9.5</b>
  
 <p align="center"> 
-<a href="https://github.com/elrebelde21"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=The-LoliBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
+<a href="https://github.com/elrebelde21"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=LoliBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
 </p>
 
 <p align="center">
-<img src="https://telegra.ph/file/9854a169d0eaea13083c7.jpg" alt="LoliBot-MD" width="900"/>
+<img src="https://telegra.ph/file/c3396a8d9b8ba43aed33e.jpg" alt="LoliBot-MD" width="900"/>
 </p>
 
 <p align="center">
@@ -39,18 +39,18 @@
 ### 💫 𝗗𝘂𝗱𝗮 𝘀𝗼𝗯𝗿𝗲 𝗲𝗹 𝗯𝗼𝘁? 
 𝗖𝗼𝗻𝘁𝗮𝗰𝘁𝗮𝗺𝗲 ✨
 
-<a href="http://wa.me/5492266466080" target="blank"><img src="https://img.shields.io/badge/Creador-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /> 
+<a href="http://wa.me/573147616444" target="blank"><img src="https://img.shields.io/badge/Creador-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /> 
 
-<a href="http://wa.me/573183650526?text=.estado" target="blank"><img src="https://img.shields.io/badge/Bot oficial-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="http://wa.me/573046570706?text=.estado" target="blank"><img src="https://img.shields.io/badge/Bot oficial-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
 
 ### ❇️ 𝙂𝙍𝙐𝙋𝙊𝙎 𝙊𝙁𝙄𝘾𝙄𝘼𝙇𝙀𝙎
 
-<a href="https://chat.whatsapp.com/KzJWBDGlE38A9Lbc6TJExI" target="blank"><img src="https://img.shields.io/badge/𝙂𝙧𝙪𝙥𝙤 𝙇𝙤𝙡𝙞𝙗𝙤𝙩-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /> 
-<a href="https://chat.whatsapp.com/BiozxvjQgo6L2QrfHK9V7R" target="blank"><img src="https://img.shields.io/badge/𝙂𝙧𝙪𝙥𝙤 𝙇𝙤𝙡𝙞𝙗𝙤𝙩 2-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/EjiaKJWvzaiAmvktpScgEc" target="blank"><img src="https://img.shields.io/badge/🐈 𝐆𝐚𝐭𝐚𝐁𝐨𝐭 & 𝐋𝐨𝐥𝐢𝐁𝐨𝐭 🥳-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/K7RzcVdxGqhGP5dCpVENSI" target="blank"><img src="https://img.shields.io/badge/𝐋𝐨𝐥𝐢𝐁𝐨𝐭 & 𝐙𝐢𝐫𝐚𝐱𝐁𝐨𝐭 -25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/KLpYFsitkgzJ15YQxZrBqO" target="blank"><img src="https://img.shields.io/badge/💖 🅜🅤🅛🅣🅘 🅑🅞🅣🅢 💖-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/HNDVUxHphPzG3cJHIwCaX5" target="blank"><img src="https://img.shields.io/badge/Grupo LoliBot ofc 1-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /> 
+<a href="https://chat.whatsapp.com/H4hxytyGvucIF1k0UAR7es" target="blank"><img src="https://img.shields.io/badge/Grupo LoliBot ofc 2-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/IO5k0UOF7hOJHE1eH3Fcxh" target="blank"><img src="https://img.shields.io/badge/🐈 𝐆𝐚𝐭𝐚𝐁𝐨𝐭 & 𝐋𝐨𝐥𝐢𝐁𝐨𝐭 🥳-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8" target="blank"><img src="https://img.shields.io/badge/𝐄𝐧𝐥𝐚𝐜𝐞 𝐋𝐨𝐥𝐢𝐁𝐨𝐭 -25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/Jpshmvl9Ey4K30zKHoK20q" target="blank"><img src="https://img.shields.io/badge/💫 𝘾𝙤𝙢𝙪𝙣𝙞𝙙𝙖𝙙 𝙇𝙤𝙡𝙞𝘽𝙤𝙩 🥳-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
 
 <a href="https://chat.whatsapp.com/FRkr7jJHSJA5OjVtE64dDs" target="blank"><img src="https://img.shields.io/badge/Grupo ayuda sobre el bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
@@ -109,57 +109,26 @@ npm start
 > cd LoliBot-MD
 > rm -rf BotSession
 > npm start
-```
-------------------
-### 🚀 USAR LOLIBOT 24/7 EN TERMUX 
-> Ejecutar estos comandos dentro de la carpeta LoliBot-MD
-```bash
-termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
-``` 
-#### ⬇️ Opciones Disponibles
-> **Warning** Esto eliminará todo el historial que hayas establecido con PM2:
-```bash 
-pm2 delete index 
-``` 
-> Si tienes cerrado Termux y quiere ver de nuevo la ejecución use:
-```bash 
-pm2 logs 
-``` 
-> Si desea detener la ejecución de Termux use:
-```bash 
-pm2 stop index
-``` 
-> Si desea iniciar de nuevo la ejecución de Termux use:
-```bash 
-pm2 start index
-``` 
-----
-### 😼 ACTUALIZAR LOLIBOT
-> **Note** Comandos para actualizar LoliBot-MD de forma automática
-```bash
-grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/elrebelde21/LoliBot-MD/master/update.sh | bash 
-```
-#### Para que no pierda su progreso en LoliBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
-> **Warning** Estos comandos solo funcionan para TERMUX, REPLIT, LINUX             
+```          
 -----
 ### 🟢 INFINITY HOST
 [![blog](https://img.shields.io/badge/infinity-LoliBot-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/o6ZSpMOsvHs?si=fzwZIDN5LPE1w0pI)
 > Activar **LoliBot-MD** 24/7 activo en Infinity-Host
 
-<a href="https://dashboard.infinitywa.xyz"><img src="https://qu.ax/TPhh.jpg" height="125px"></a>
+<a href="https://dash.infinitywa-host.com"><img src="https://telegra.ph/file/1a1cebe11109c5d366e6d.jpg" height="225px"></a>
 ### Información del Host
 
-- **Página:** [`Click aqui`](https://dashboard.infinitywa.xyz)
-- **Dashboard:** [`Aquí`](https://dashboard.infinitywa.xyz)
-- **Panel:** [`Aquí`](https://live.panel-infinitywa.store)
+- **Página:** [`Click aqui`](https://infinitywa-host.com/)
+- **Dashboard:** [`Aquí`](https://dash.infinitywa-host.com)
+- **Panel:** [`Aquí`](https://panel.infinitywa-host.com)
 - **Grupo de WhatsApp:** [`Aquí`](https://chat.whatsapp.com/GQ82mPnSYnm0XL2hLPk7FV)
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)
 - **Support:** [`Bot exclusivo`](https://wa.me/message/FETBF7YBO37CG1)
 
 - [x] **Configuración** <details><summary>**Ajustes del Servidor - LoliBot-MD**</summary><img src="https://qu.ax/CqMG.jpg"></details>
 ---- 
-#### ⚡ QUIERE TENER EL BOT 24/7 ACTIVO ACTIVAR EL CAFIREXOS HOST
+#### 🟢 CAFIREXOS HOST
 
 <a href="https://www.cafirexos.com/"><img src="https://telegra.ph/file/f400ffe819ad3c0fc87b9.jpg" height="125px"></a>
 ### Información del Host
@@ -181,31 +150,6 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 <a href="https://replit.com/github/elrebelde21/LoliBot-MD"> <img src="https://media0.giphy.com/media/lMwu8EJAnv9kmn51KQ/giphy.gif" height="29px"></a>
 ------------------
 - [x] Resultado <details><summary>Importar Repositorio - The-LoliBot-MD</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
-------------------
-## 💻 PARA USUARIOS DE WINDOWS/VPS/RDP
-
-* Descargar e instala Git [`Aquí`](https://git-scm.com/downloads)
-* Descargar e instala NodeJS [`Aquí`](https://nodejs.org/en/download)
-* Descargar e instala FFmpeg [`Aquí`](https://ffmpeg.org/download.html) (**No olvide agregar FFmpeg a la variable de entorno PATH**)
-* Descargar e instala ImageMagick [`Aquí`](https://imagemagick.org/script/download.php)
-* Descargar e instala Yarn [`Aquí`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
-```bash
-git clone https://github.com/elrebelde21/LoliBot-MD && cd LoliBot-MD && npm install && npm update && node .
-```
-## 💻 Instalación de FFmpeg para Windows 
-* Descarga cualquiera de las versiones de FFmpeg disponibles haciendo clic en [FFmpeg](https://www.gyan.dev/ffmpeg/builds/).
-* Extraer archivos a `C:\` path.
-* Cambie el nombre de la carpeta extraída a `ffmpeg`.
-* Ejecute el símbolo del sistema como administrador.
-* Ejecute el siguiente comando:
-```cmd
-> setx /m PATH "C:\ffmpeg\bin;%PATH%"
-```
-Si tiene éxito, le dará un mensaje como: `SUCCESS: specified value was saved`.
-* Ahora que tiene FFmpeg instalado, verifique que funcionó ejecutando este comando para ver la versión:
-```cmd
-> ffmpeg -version
-```
 ----  
 ### `📝 NOTA 📝`
 ```bash

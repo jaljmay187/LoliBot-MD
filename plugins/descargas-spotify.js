@@ -1,45 +1,41 @@
-import fetch from 'node-fetch'
-import Spotify from "spotifydl-x"
-import fs from 'fs'
-let handler = async(m, { conn, usedPrefix, command, text }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let frep = { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}}
-if (!text) return await conn.reply(m.chat, `${lenguajeGB.smsMalused2()} ⊱ *${usedPrefix + command} ozuna*`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
-try {
-let resDL = await fetch(`https://api.lolhuman.xyz/api/spotifysearch?apikey=${lolkeysapi}&query=${text}`)
-let jsonDL = await resDL.json()
-let linkDL = jsonDL.result[0].link
-let spty = await spotifydl(linkDL)
-const getRandom = (ext) => {
-return `${Math.floor(Math.random() * 10000)}${ext}`}
-let randomName = getRandom(".mp3")
-const filePath = `./tmp/${randomName}`
-fs.writeFileSync(filePath, spty.audio)
-let spotifyi = `\`🎶 ＳＰＯＴＩＦＹ 🎶\`
+// TheMystic-Bot-MD@BrunoSobrino - descargas-spotify.js
+// Creditos de los tags a @darlyn1234 y diseño a @ALBERTO9883
+import fetch from 'node-fetch';
+import fs from 'fs';
+import axios from 'axios';
 
-✨ *TITULO:* » *${spty.data.name}*
-🗣️ *ARTISTA:* » *${spty.data.artists}*
-🌐 *URL*: » *${linkDL}*
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+ if (!text) return await conn.reply(m.chat, `¿Que esta buscando? ingresa el nombre para descargar sus música de Spotify, Ejemplo:* ${usedPrefix + command} ozuna`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: wm, previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
+m.react(`⌛`) 
+  try {
+    const res = await fetch(global.API('CFROSAPI', '/api/spotifysearch?text=' + text))
+    const data = await res.json()
+    const linkDL = data.spty.resultado[0].link;
+    const musics = await fetch(global.API('CFROSAPI', '/api/spotifydl?text=' + linkDL))
+    const music = await conn.getFile(musics.url)
+    const infos = await fetch(global.API('CFROSAPI', '/api/spotifyinfo?text=' + linkDL))
+    const info = await infos.json()
+    const spty = info.spty.resultado
+    const img = await (await fetch(`${spty.thumbnail}`)).buffer()  
+
+let spotifyi = `*• Titulo:* ${spty.title}
+*• Artista:* ${spty.artist}
+*• Álbum:* ${spty.album}
+*• Publicado:* ${spty.year}
 
 > 🚀 *ᴱⁿᵛᶦᵃⁿᵈᵒ ᶜᵃⁿᶜᶦᵒ́ⁿ ᵃᵍᵘᵃʳᵈᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ....*`
 await conn.reply(m.chat, spotifyi, fkontak, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: spty.data.cover_url, sourceUrl: redes.getRandom()}}}) 
-//conn.sendFile(m.chat, spty.data.cover_url, 'error.jpg', spotifyi, fkontak, m)
-await conn.sendMessage(m.chat, { audio: fs.readFileSync(`./tmp/${randomName}`), fileName: `${spty.data.name}.mp3`, mimetype: "audio/mp4", }, { quoted: m })    
+await conn.sendMessage(m.chat, {audio: music.data, fileName: `${spty.name}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m})
+m.react(`✅`) 
 handler.limit = 1
-} catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)
-handler.limit = false
-}}
+  } catch (error) {
+    console.error(error);
+m.react(`❌`) 
+  }};
+handler.help = ['spotify']
+handler.tags = ['downloader']
 handler.command = /^(spotify|music)$/i
+handler.register = true
 //handler.limit = 1
 handler.level = 2
 export default handler
-
-const credentials = { clientId: 'acc6302297e040aeb6e4ac1fbdfd62c3', clientSecret: '0e8439a1280a43aba9a5bc0a16f3f009' }
-const spotify = new Spotify.default(credentials)
-async function spotifydl(url) {
-const res = await spotify.getTrack(url).catch(() => {
-return { error: 'Fallo la descarga' }})
-return { data: res, audio: await spotify.downloadTrack(url) }}

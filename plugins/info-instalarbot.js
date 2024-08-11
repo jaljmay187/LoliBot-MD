@@ -11,7 +11,7 @@ https://youtu.be/gh5NajZOTA8
 > *${global.nna}*
 
 > 💛 *Si tienes dudas o necesitas ayuda en el proceso de la instalación puede escribir me a este número (No es Bot el número)*
-
+ 
 > 📲 ${asistencia}
 
 > ❗ *_Solo para temas de instalación_*
@@ -82,6 +82,8 @@ let aa = { quoted: m, userJid: conn.user.jid }
 let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: texto, contextInfo: { externalAdReply: { title: 'ʟᴏʟɪʙᴏᴛ-ᴍᴅ', body: null, thumbnail: imagen1, sourceUrl: 'https://youtu.be/gh5NajZOTA8' }, mentionedJid: [m.sender] }}}, aa)
 conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id, mentions: [m.sender] })  
 }
+handler.help = ['instalarbot']
+handler.tags = ['main']
 handler.command = /^(instalarbot)/i
 handler.register = true
 export default handler
