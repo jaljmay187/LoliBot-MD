@@ -2,14 +2,14 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
-//import cheerio from 'cheerio'
+import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import axios from 'axios'
 import moment from 'moment-timezone' 
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
 
-global.owner = [['573147616444', 'ＰＲＯＰＩＥＴＡＲＩＯ', true], ['593968585383'], ['5492266466080'], ['5492266613038'], ['5491155983299'], ['595986172767'], ['5492964650915'], ['51948705559']]
+global.owner = [['573147616444', 'ＰＲＯＰＩＥＴＡＲＩＯ', true], ['593968585383'], ['5492266466080'], ['50492280729'], ['5492266613038'], ['5491155983299'], ['595986172767'], ['5492964650915'], ['51948705559']]
 global.mods = []
 global.prems = []
 
@@ -17,6 +17,9 @@ global.prems = []
 //Sólo aplica para opción 2 (ser bot con código de texto de 8 digitos)
 global.botNumberCode = "" //Ejemplo: +59309090909
 global.confirmCode = "" 
+
+// Cambiar a false para usar el Bot desde el mismo numero del Bot.
+global.isBaileysFail = false
 
 //---------[ APIS GLOBAL ]---------
 
@@ -58,7 +61,7 @@ global.APIKeys = {'https://api.xteam.xyz': `${keysxteam}`,
 'https://api.itsrose.site': 'Rs-Zeltoria',
 'https://api-xcoders.site': 'Frieren' }
 
-//global.cheerio = cheerio
+global.cheerio = cheerio
 global.fs = fs
 global.fetch = fetch
 global.axios = axios
