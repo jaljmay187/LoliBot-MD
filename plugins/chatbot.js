@@ -8,6 +8,10 @@ let name = conn.getName(m.sender)
 const user = `@${m.sender.split`@`[0]}`;
 //let textodem = m.text;
 if (chat.isBanned) return
+if (m.isBot || m.sender.includes('bot') || m.sender.includes('Bot')) {
+return true; 
+}
+    
 let vn = 'https://qu.ax/eGdW.mp3'
 let bot = `${pickRandom([`*Hola ${user} soy un bot el que puedo ayudar? 👉👈*`, `Aqui estoy`, `bot tu abuela`, `que quiere?`, `No dispoble 🫣`, `Hola aqui estoy soy tu botsito sexy el que puedo ayudar uwu`])}
 `.trim()//`
@@ -61,8 +65,8 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 • wa.me/573147616444
 • https://www.facebook.com/elrebelde21` 
 
-if (m.text.includes(`Bot`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
-//if (m.text.includes(`Bot`) || m.text.includes(`bot`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
+//if (m.text.includes(`Bot`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
+if (m.text.includes(`Bot`) || m.text.includes(`bot`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
 if (m.text.includes('jadibot') || m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('instalarbot') ||  m.text.includes('infobot')) return
 //try {
 await conn.sendPresenceUpdate('composing', m.chat)
@@ -115,7 +119,7 @@ return m.reply([`Simsimi esta durmiendo no molesta 🥱`, `Callarte`, `Api simsi
 }}*/
 }
 
-if (/^CorinPlus|corinplus|infinityWa|infohost|hosting$/i.test(m.text)) {
+if (/^infohost$/i.test(m.text)) {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
 forwardingScore: 9999999,
