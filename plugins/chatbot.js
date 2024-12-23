@@ -8,6 +8,7 @@ let name = conn.getName(m.sender)
 const user = `@${m.sender.split`@`[0]}`;
 //let textodem = m.text;
 if (chat.isBanned) return
+if (m.fromMe) return
 if (m.isBot || m.sender.includes('bot') || m.sender.includes('Bot')) {
 return true; 
 }
@@ -15,39 +16,36 @@ return true;
 let vn = 'https://qu.ax/eGdW.mp3'
 let bot = `${pickRandom([`*Hola ${user} soy un bot el que puedo ayudar? 👉👈*`, `Aqui estoy`, `bot tu abuela`, `que quiere?`, `No dispoble 🫣`, `Hola aqui estoy soy tu botsito sexy el que puedo ayudar uwu`])}
 `.trim()//`
-let txt = `*\`💫 Te presentamos un nuevo hosting: "CorinPlus" host propios 😎\`*
-
-*¿Muy lento tu nokia y necesitas tener activo tu bot 24/7?*
+let txt = `*¿Muy lento tu nokia y necesitas tener activo tu bot 24/7?*
 
 > *Te tenemos la mejor opción para mantener activo tu bot 24/7, a precios muy accesibles. Es muy barato y todos pueden comprar.*
 
 🟢 \`\`\`Información del Host\`\`\`
 
 💻 *Página:*
-https://dash.corinplus.com
+https://skyultraplus.com
 
 *🟢 Dashboard:*
-https://dash.corinplus.com
+https://dash.skyultraplus.com
 
 ⚙️ *Panel*
-https://panel.corinplus.com
+https://panel.skyultraplus.com
 
 💥 *Comunidad de WhatsApp:*
-https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON
+https://chat.whatsapp.com/KGPhTIfgOzZCMNqoc3R7OW
 
 *🟣 Discord:*
-https://discord.com/invite/bjKpRBtkHv
+https://discord.gg/zvKgtc2RBc
 
 🧡 *Canal de WhatsApp:*
 https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 
 🛍️ *Método de pago:*
 *• PayPal (opción 1):* https://paypal.me/OfcGB
-*• PayPal (opcion 2):* paypal.me/Corinplushost
+*• PayPal (opcion 2):* https://paypal.me/OficialGD
 *• Mercado pago, alías:* OficialGB
 *• Naranja x, alías:* hostingCalidad
 *• Uala, CVU:* 0000007900204304075982
-*• Yape/plin (Perú) :* 976673519
 *• Tigo Money (Paraguay):* +595 983 799436
 *• Personal Pay (Paraguay):* +595 973 755967
 *• Yape o método QR (Bolivia):* +59169082575
@@ -57,22 +55,24 @@ https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g
 *• Link de pago:*
 • _link.mercadopago.com.ar/h0sting_
 • _https://payment-link.astropay.com/RbMJ_
-*• Patreon:* _https://patreon.com/CorinPlus_hosting_
-*• Kofi:* _https://ko-fi.com/corinplus_
+*• Patreon:* _https://patreon.com/SkyUltraPlus_
+*• Kofi:* _https://ko-fi.com/skyultraplus_
 
 🗣📲 *Contacto:*
 • wa.me/5214531287294
+• wa.me/15167096032
 • wa.me/573147616444
 • https://www.facebook.com/elrebelde21` 
 
 //if (m.text.includes(`Bot`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
-if (m.text.includes(`Bot`) || m.text.includes(`bot`) || m.text.includes(`simi`) || m.text.includes(`alexa`)) {   
+
+if (/^bot|simi|alexa$/i.test(m.text)) {   
 if (m.text.includes('jadibot') || m.text.includes('bots') || m.text.includes('serbot') || m.text.includes('instalarbot') ||  m.text.includes('infobot')) return
-//try {
+try {
 await conn.sendPresenceUpdate('composing', m.chat)
 async function luminsesi(q, username, logic) {
 try {
-const response = await axios.post("https://lumin-ai.xyz/", {
+const response = await axios.post("https://luminai.my.id", {
 content: q,
 user: username,
 prompt: logic,
@@ -92,16 +92,17 @@ let syms1 = `Tomarás el rol de un bot de Whatsapp creado por elrebelde21. Tu no
 
 los quiere dices que tu respuesta sera humor puro, risa, memes.
 
-si pregunta donde aloja el bot 24/7 tu recomienda el hosting "CorinPlus host", alojamiento de bot de WhatsApp, Telegram, discord, todos con etono JavaScript, ofrecemos server gratis y de pago, a precios asequibles, barato, todos puede comprar mas información: (https://dash.corinplus.com). 
+si pregunta donde aloja el bot 24/7 tu recomienda el hosting "Sky-Ultra-Plus host", alojamiento de bot de WhatsApp, Telegram, discord, todos con etono JavaScript, ofrecemos server gratis y de pago, a precios asequibles, barato, todos puede comprar mas información: (https://dash.skyultraplus.com). 
 para actualizaciónes/novedades sobre el bot o nuesro hosting seguir nuestro canal de WhatsApp: (https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A).`;  
 
 let result = await luminsesi(query, username, syms1);
 await conn.reply(m.chat, result, m)
-/*
-let gpt = await fetch(`https://deliriusapi-official.vercel.app/tools/simi?text=${m.text}`)
+} catch {
+try {
+let gpt = await fetch(`https://deliriussapi-oficial.vercel.app/tools/simi?text=${m.text}`)
 let res = await gpt.json()
 await m.reply(res.data.message)
-} catch {
+/*} catch {
 try {
 if (text.includes('Hola')) text = text.replace('Hola', 'Hello');
 if (text.includes('hola')) text = text.replace('hola', 'Hello');
@@ -113,13 +114,14 @@ const api = await fetch('http://api.brainshop.ai/get?bid=153868&key=rcKonOgrUFmn
 const res = await api.json();
 const reis2 = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=' + res.cnt);
 const resu2 = await reis2.json();
-m.reply(resu2[0][0][0]);
-} catch {
+m.reply(resu2[0][0][0]);*/
+} catch (e) {
 return m.reply([`Simsimi esta durmiendo no molesta 🥱`, `Callarte`, `Api simsimi caida`, `Simsimi esta ocupado cojieron con tu hermana vuelva mas tarde 🥵`, `NO MOLESTE PUTA`, `No hay señar`, `No estoy disponible`].getRandom());
-}}*/
+console.log(e) 
+}}
 }
 
-if (/^infohost$/i.test(m.text)) {
+if (/^infohost|hosting$/i.test(m.text)) {
  await conn.sendMessage(m.chat, { text: txt,
 contextInfo:{
 forwardingScore: 9999999,
@@ -127,10 +129,10 @@ isForwarded: false,
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `🤖 𝐂O𝐑𝐈𝐍𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
+title: `🤖 𝐒𝐊𝐘𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
 body: `✅ Hosting de Calidad`,
 "previewType": "PHOTO",
-thumbnailUrl: 'https://telegra.ph/file/551d3d544d7bc607fd337.jpg', 
+thumbnailUrl: 'https://qu.ax/wXciz.jpg', 
 sourceUrl: nna}}}, { quoted: m})
 } 
     
@@ -161,7 +163,7 @@ conn.reply(m.chat, `\`⚠️ 𝙍𝙀𝙂𝙇𝘼𝙎 ⚠️\`
 
 >「 🅛🅞🅛🅘🅑🅞🅣-🅜🅓 」`, m)}
 
-if (/^Quiero un bot|como obtengo un bot? |Quiero un bot? |quiero un bot|solicitud|solicitó bot|solicito bot|Necesito un bot|necesito un bot$/i.test(m.text) ) {
+if (/^Quiero un bot|como obtengo un bot? |Quiero un bot? |quiero un bot|solicitó bot|solicito bot|Necesito un bot|necesito un bot$/i.test(m.text) ) {
 conn.reply(m.chat,  `\`⚡ ¿Quieres un bot para tu grupo?\`
 
 Puedes solicitarlo haciendo una donación voluntaria a través de PayPal o Mercado Pago arg. 

@@ -3,22 +3,20 @@ import fetch from 'node-fetch'
 import axios from "axios"
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-//let frep = { contextInfo: { externalAdReply: {title: wm, body: author, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(gataMenu.getRandom())).buffer() }}}
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 try { 
 if (command == 'consejo' || command == 'advice') { 
 let img = 'https://img.freepik.com/vector-premium/caracter-gato-ilustracion-hoja-trebol_75474-1263.jpg'
 let list = global.motivation 
 let contenido = list[Math.floor(Math.random() * list.length)]
-let result = await translate(`${contenido}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
+let result = await translate(`${contenido}`, { to: "es", autoCorrect: true })
 let texto = `
 *╭━━・☘️・━━━━・☘️・━━⬣*
 
 *ღ _${result.text}_*
 
 *╰━━・☘️・━━━━・☘️・━━⬣*`
-conn.sendButton(m.chat, texto.trim(), botname, img, [['✨ 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 ✨', `/${command}`]], null, null, m)}
-//conn.sendFile(m.chat, img,  'error.jpg', texto.trim(), fkontak, false, { contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})} 
+//conn.sendButton(m.chat, texto.trim(), botname, img, [['✨ 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 ✨', `/${command}`]], null, null, m)}
+conn.sendFile(m.chat, img,  'error.jpg', texto.trim(), fkontak, false, fake)} 
 //await conn.sendButton(m.chat, texto.trim(), wm, img, [[lenguajeGB.smsConj(), `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)}   
   
 if (command == 'frase2' || command == 'phrase2') { 
@@ -26,19 +24,19 @@ let img = 'https://superpet.pe/blog/wp-content/uploads/2022/05/nombres-para-gato
 let list = (await axios.get(`https://raw.githubusercontent.com/GataNina-Li/GataBot-MD/master/src/JSON/frase2.json`)).data  
 let contenido = await list[Math.floor(list.length * Math.random())]
 let frase = contenido.motivasi
-let frase2 = await translate(`${frase}`, { to: lenguajeGB.lenguaje(), autoCorrect: true })
+let frase2 = await translate(`${frase}`, { to: "es", autoCorrect: true })
 let texto = `
 *╭━━・☘️・━━━━・☘️・━━⬣*
 
 *ღ ${frase2.text}*
 
 *╰━━・☘️・━━━━・☘️・━━⬣*`
-conn.sendButton(m.chat, texto.trim(), botname, img, [['✨ 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 ✨', `/${command}`]], null, null, m)} 
+conn.sendFile(m.chat, img,  'error.jpg', texto.trim(), fkontak, false, fake)} 
 //await conn.sendButton(m.chat, texto.trim(), wm, img, [[lenguajeGB.smsFras(), `${usedPrefix + command}`], [lenguajeGB.smsConMenu(), `${usedPrefix}menu`]], m, frep)} 
 } catch (e) {
 await m.react(`❌`) 
-console.log(e)}  
-}
+m.reply(`\`\`\`⚠️ OCURRIO UN ERROR ⚠️\`\`\`\n\n> *Reporta el siguiente error a mi creador con el comando:*#report\n\n>>> ${e} <<<< `)       
+console.log(e)}}
 handler.help = ['consejo']
 handler.tags = ['downloader']
 handler.command = ['consejo', 'advice', 'frase2', 'phrase2']

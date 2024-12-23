@@ -9,7 +9,7 @@ import moment from 'moment-timezone'
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
 
-global.owner = [['573147616444', 'ＰＲＯＰＩＥＴＡＲＩＯ', true], ['593968585383'], ['5492266466080'], ['50492280729'], ['5492266613038'], ['5491155983299'], ['595986172767'], ['5492964650915'], ['51948705559']]
+global.owner = [['5214774444444', 'ＰＲＯＰＩＥＴＡＲＩＯ', true], ['593968585383'], ['573147616444'], ['14697106545'], ['5492266613038']]
 global.mods = []
 global.prems = []
 
@@ -35,6 +35,7 @@ global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = "GataDiosV2"
 global.itsrose = ['4b146102c4d500809da9d1ff']
 global.baileys = '@whiskeysockets/baileys'
+global.apis = 'https://deliriussapi-oficial.vercel.app'
 
 global.APIs = {xteam: 'https://api.xteam.xyz', 
 dzx: 'https://api.dhamzxploit.my.id',
@@ -84,16 +85,18 @@ global.fb = 'https://www.facebook.com/elrebelde21'
 global.face = 'https://www.facebook.com/groups/872989990425789/'
 
 global.nna = 'https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A' //Update
+global.nna2 = 'https://whatsapp.com/channel/0029Vau57ykEwEk5CgosvU3v' //LoliBot update
+global.nnaa = 'https://whatsapp.com/channel/0029Vae6j714Y9loutP3Au29' //LoliBot - Test
 global.nn = 'https://chat.whatsapp.com/HNDVUxHphPzG3cJHIwCaX5' //Grupo 1
 global.nnn = 'https://chat.whatsapp.com/H4hxytyGvucIF1k0UAR7es' //Grupo 2
-global.nnnt = 'https://chat.whatsapp.com/IlyJBy1fxcw2qAHLSC5YLa' //Grupo del Colaboracion
+global.nnnt = 'https://chat.whatsapp.com/IO5k0UOF7hOJHE1eH3Fcxh' //Grupo del Colaboracion
 global.nnnt2 = 'https://chat.whatsapp.com/K7RzcVdxGqhGP5dCpVENSI' // Grupo COL 2
 global.nnntt = 'https://chat.whatsapp.com/IB9Vs7mZ03BBkH3reCU8Dw' //Grupo COL 3
-global.nnnttt = 'https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8' //enlace lolibot
+global.nnnttt = 'https://chat.whatsapp.com/GKJ7UpMsLXaDYcl9PovsJL' //enlace lolibot
 global.nnntttt = 'https://chat.whatsapp.com/FRkr7jJHSJA5OjVtE64dDs' //Grupo ayuda sobre el bot
-global.bot = 'Wa.me/573147616444'
+global.bot = 'wa.me/573007487856'
 global.asistencia = `${fb}`
-global.redes = [nna, yt, nn, md, tiktok, fb, nnn, face]
+global.redes = [nna, nna2, yt, nn, md, tiktok, fb, nnn, face]
 
 //------------------------[ Info | Datos ]---------------------------
 
@@ -118,7 +121,7 @@ global.eg = '『💚 𝙀𝙓𝙄𝙏𝙊𝙎 💚』\n\n'
 global.exito = eg
 
 //-------------------------[ IMAGEN ]------------------------------
-global.img = "https://qu.ax/Zgqq.jpg"
+//global.img = "https://qu.ax/Zgqq.jpg"
 global.img1 = 'https://qu.ax/hNJk.jpg'
 global.img2 = 'https://qu.ax/jzhN.jpg'
 
@@ -132,6 +135,7 @@ global.imagen6 = 'https://qu.ax/CySs.jpg'
 global.menu18 = 'https://qu.ax/MOgO.jpg'
 global.vid1 = 'https://qu.ax/dcAc.mp4'
 global.img = [imagen, imagen1, imagen2, imagen3, imagen4]
+global.imageUrl = ["https://qu.ax/HJnWj.jpg", "https://qu.ax/ehPzQ.jpg", "https://qu.ax/ilfbC.jpg"]
 
 //----------------------------[ NIVELES | RPG ]---------------------------------
 
@@ -155,7 +159,17 @@ global.flaaa = [
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=']
 
-//━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
+//---------------[ IDs de canales ]----------------
+
+global.ch = {
+ch1: '120363297379773397@newsletter', 
+ch2: '120363355261011910@newsletter', 
+ch3: '120363160031023229@newsletter',
+ch4: '120363301598733462@newsletter',
+ch5: '120363374372683775@newsletter', 
+}
+
+//----------------------------------------------------
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {

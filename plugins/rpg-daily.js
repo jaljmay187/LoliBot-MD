@@ -9,31 +9,32 @@ const money = Math.floor(Math.random() * 800)
 global.db.data.users[m.sender].limit += limit;
 global.db.data.users[m.sender].money += money
 global.db.data.users[m.sender].exp += isPrems ? prem : free
-m.reply(`🎁 *𝙊𝙗𝙩𝙞𝙚𝙣𝙚 𝙪𝙣 𝙧𝙚𝙜𝙖𝙡𝙤!!*
 
-🔸 *𝐇𝐀𝐒 𝐑𝐄𝐂𝐈𝐁𝐈𝐃𝐎:*
+let text = `*🔸 𝐇𝐀𝐒 𝐑𝐄𝐂𝐈𝐁𝐈𝐃𝐎:*
+
 *💎 Diamante:* ${limit}
 *🪙 LoliCoins:* ${money}
-*🆙 Xp:* ${isPrems ? prem : free}`)
-  global.db.data.users[m.sender].lastclaim = new Date * 1
+*🆙 Xp:* ${isPrems ? prem : free}`
+conn.fakeReply(m.chat, text, '13135550002@s.whatsapp.net', `🎁 Obtener un regalo 🎁`, 'status@broadcast', null, fake)
+//m.reply(text)
+global.db.data.users[m.sender].lastclaim = new Date * 1
 }
 handler.help = ['daily']
 handler.tags = ['econ']
 handler.command = ['daily', 'claim'] 
 handler.register = true
-
 export default handler
 
 function msToTime(duration) {
-  var milliseconds = parseInt((duration % 1000) / 100),
-    seconds = Math.floor((duration / 1000) % 60),
-    minutes = Math.floor((duration / (1000 * 60)) % 60),
-    hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
+var milliseconds = parseInt((duration % 1000) / 100),
+seconds = Math.floor((duration / 1000) % 60),
+minutes = Math.floor((duration / (1000 * 60)) % 60),
+hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
 
-  hours = (hours < 10) ? "0" + hours : hours
-  minutes = (minutes < 10) ? "0" + minutes : minutes
-  seconds = (seconds < 10) ? "0" + seconds : seconds
+hours = (hours < 10) ? "0" + hours : hours
+minutes = (minutes < 10) ? "0" + minutes : minutes
+seconds = (seconds < 10) ? "0" + seconds : seconds
 
-  return hours + " Horas " + minutes + " Minutos"
+return hours + " Horas " + minutes + " Minutos"
 }
 

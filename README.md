@@ -61,6 +61,23 @@
 )](https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A)  <a href="https://whatsapp.com/channel/0029Va4QjH7DeON0ePwzjS1A"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/1200px-WhatsApp_logo-color-vertical.svg.png" height="29px">
 </a>
 -----
+### ☁️ Activar LoliBot-MD 24/7 activos en SkyPlus Host
+[![YouTube](https://img.shields.io/badge/SkyUltraPlus-Host-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/fZbcCLpSH6Y?si=1sDen7Bzmb7jVpAI)
+
+<a href="https://dash.corinplus.com"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
+
+### Información del Host
+- **Dashboard:** [`Aquí`](https://dash.skyultraplus.com)
+- **Panel:** [`Aquí`](https://panel.skyultraplus.com)
+- **Estado de servicios:** [`Aquí`](https://estado.skyultraplus.com)
+- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
+- **Comunidad:** [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
+- **Contacto(s):** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1) / [`Russell`](https://api.whatsapp.com/send/?phone=15167096032&text&type=phone_number&app_absent=0) / [`elrebelde21`](https://facebook.com/elrebelde21)
+- **Discord:** [`aqui`](https://discord.gg/Ph4eWsZ8)
+
+- [x] **Configuración** <details><summary>**Ajustes del Servidor - LoliBot-MD**</summary><img src="https://telegra.ph/file/7ddd30dd7d77354fb01fe.jpg"></details>
+----
+
 ### 𝐀𝐂𝐓𝐈𝐕𝐀 𝐄𝐋 𝐓𝐄𝐑𝐌𝐔𝐗 - 𝙂𝙄𝙏𝙃𝙐𝘽
 [![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/O_j2q5xCg3A?si=rqKUJF-8w1OCeAxx?feature=share)
 > ⬇️ 𝐄𝐒𝐂𝐑𝐈𝐁𝐄 𝐋𝐎𝐒 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄𝐒 𝐂𝐎𝐌𝐀𝐍𝐃𝐎𝐒 𝐔𝐍𝐎 𝐏𝐎𝐑 𝐔𝐍𝐎 (Opción 1) 
@@ -68,7 +85,16 @@
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/elrebelde21/LoliBot-MD/master/install.sh | bash
+apt update && apt upgrade && pkg update && pkg upgrade && pkg install bash && pkg install libwebp && pkg install git -y && pkg install nodejs -y && pkg install ffmpeg -y && pkg install wget && pkg install imagemagick -y && pkg install yarn
+```
+```bash
+git clone https://github.com/elrebelde21/LoliBot-MD && cd LoliBot-MD
+```
+```bash
+bash ./install2.sh
+```
+```bash
+npm start
 ```
 -----
 ### 📁 (OPCIÓN 2) 𝐀𝐂𝐓𝐈𝐕𝐀 𝐄𝐋 𝐓𝐄𝐑𝐌𝐔𝐗 - 𝘼𝙍𝘾𝙃𝙄𝙑𝙊𝙎 
@@ -86,10 +112,7 @@ apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 cd storage/downloads/LoliBot-MD-master/LoliBot-MD-master 
 ```
 ```bash
-yarn install
-```
-```bash
-npm install
+bash ./install2.sh
 ```
 ```bash
 npm start
@@ -111,21 +134,6 @@ npm start
 > npm start
 ```          
 -----
-### ☁️ CORINPLUS HOTS 
-<a href="https://dash.corinplus.com"><img src="https://qu.ax/ZycD.png" height="125px"></a>
-### Información del Host
-
-- **Dashboard:** [`Aquí`](https://dash.corinplus.com)
-- **Panel:** [`Aquí`](https://panel.corinplus.com)
-- **Estado de servicios:** [`Aquí`](https://status.corinplus.com)
-- **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
-- **Comunidad - WhatsApp** [`Aquí`](https://chat.whatsapp.com/HR3OLhsuZPqCMImzuHcuON)
-- **Support:** [`Bot exclusivo`](https://wa.me/message/FETBF7YBO37CG1)
-- **Contacto:** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1)
-- **Contacto:** [`elrebelde21`](https://facebook.com/elrebelde21)
-
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - LoliBot-MD**</summary><img src="https://telegra.ph/file/7ddd30dd7d77354fb01fe.jpg"></details>
-----
 ### ⚡ ACTIVA EL REPLIT
 [![blog](https://img.shields.io/badge/Lolibot-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/SMjCcfuyWQE)
@@ -153,7 +161,7 @@ npm start
 [![Yesenia57](https://github.com/Yesenia57.png?size=100)](https://github.com/Yesenia57) 
 [![AzamiJs](https://github.com/AzamiJs.png?size=100)](https://github.com/AzamiJs)  
 [![KatashiFukushima](https://github.com/KatashiFukushima.png?size=100)](https://github.com/KatashiFukushima)
-[![DanielDiod](https://github.com/DanielDiod.png?size=100)](https://github.com/DanielDiod)
+[![DanixlJs](https://github.com/DanixlJs.png?size=100)](https://github.com/DanixlJs)
 [![edar123](https://github.com/edar123.png?size=100)](https://github.com/edar123)
 
 ### 🌟 AGRADECIMIENTOS

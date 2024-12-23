@@ -12,6 +12,12 @@ keepTrailingZeroes: false,
 render: (literal, symbol) => `${literal} ${symbol}B`,
 });
 
+const used = process.memoryUsage();
+    let ram = await si.mem()
+    let cpu = await si.cpuCurrentSpeed()
+    let disk = await si.fsSize()
+    let up = await si.time()
+      
 async function getSystemInfo() {
 let disk = await si.fsSize();
 const memInfo = await si.mem();
@@ -45,13 +51,10 @@ horaActual: new Date().toLocaleString(),
 detallesCPUNúcleo: load.cpus.map(cpu => cpu.load.toFixed(2) + '%')
 };
 
-//Calcula la latencia (tiempo de respuesta)
 const startTime = Date.now();
 await si.currentLoad();
 const endTime = Date.now();
 data.latencia = `${endTime - startTime} ms`;
-
-//Calcula el tiempo de actividad
 const uptimeSeconds = await si.time().uptime;
 const days = Math.floor(uptimeSeconds / 60 / 60 / 24);
 const hours = Math.floor((uptimeSeconds / 60 / 60) % 24);
@@ -74,11 +77,6 @@ let totalchats = Object.keys(global.db.data.chats).length;
 let totalf = Object.values(global.plugins).filter(v => v.help && v.tags).length;
 const groupsIn = chats.filter(([id]) => id.endsWith('@g.us'));
 let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])];
-const used = process.memoryUsage();
-    let ram = await si.mem()
-    let cpu = await si.cpuCurrentSpeed()
-    let disk = await si.fsSize()
-    let up = await si.time()
 let timestamp = speed();
 let latensi = speed() - timestamp;
 
@@ -109,8 +107,7 @@ let teks = `*≡ INFOBOT*
 ▣ *Espacio Total en Disco:* ${data.espacioTotalDisco} 
 ▣ *Uptime:* ${data.tiempoActividad}`;
 
-await conn.sendMessage(m.chat, {image: { url: "https://telegra.ph/file/39fb047cdf23c790e0146.jpg" },
-caption: teks, contextInfo: {externalAdReply: { title: `INFO - BOT`, sourceUrl: nna, mediaType: 1, showAdAttribution: true, thumbnailUrl: img1,
+await conn.sendMessage(m.chat, {image: { url: "https://telegra.ph/file/39fb047cdf23c790e0146.jpg" }, caption: teks, contextInfo: {externalAdReply: { title: `INFO - BOT`, sourceUrl: redes.getRandom(), mediaType: 1, showAdAttribution: true, thumbnailUrl: img1,
 }}}, { quoted: m })});
 };
 handler.help = ['infobot'];
@@ -120,21 +117,20 @@ handler.register = true;
 export default handler;
 
 function toNum(number) {
-    if (number >= 1000 && number < 1000000) {
-        return (number / 1000).toFixed(1) + 'k';
-    } else if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'M';
-    } else if (number <= -1000 && number > -1000000) {
-        return (number / 1000).toFixed(1) + 'k';
-    } else if (number <= -1000000) {
-        return (number / 1000000).toFixed(1) + 'M';
-    } else {
-        return number.toString();
-    }
-}
+if (number >= 1000 && number < 1000000) {
+return (number / 1000).toFixed(1) + 'k';
+} else if (number >= 1000000) {
+return (number / 1000000).toFixed(1) + 'M';
+} else if (number <= -1000 && number > -1000000) {
+return (number / 1000).toFixed(1) + 'k';
+} else if (number <= -1000000) {
+return (number / 1000000).toFixed(1) + 'M';
+} else {
+return number.toString();
+}}
 
 function humanFileSize(bytes) {
-    const unidades = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
-    const exponente = Math.floor(Math.log(bytes) / Math.log(1024));
-    return `${(bytes / Math.pow(1024, exponente)).toFixed(2)} ${unidades[exponente]}`;
+const unidades = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
+const exponente = Math.floor(Math.log(bytes) / Math.log(1024));
+return `${(bytes / Math.pow(1024, exponente)).toFixed(2)} ${unidades[exponente]}`;
 }

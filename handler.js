@@ -1,4 +1,4 @@
- import { smsg } from './lib/simple.js'
+import { smsg } from './lib/simple.js'
 import { format } from 'util' 
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
@@ -897,7 +897,7 @@ if (!('delete' in chat)) chat.delete = false
 if (!('modohorny' in chat)) chat.modohorny = true       
 if (!('stickers' in chat)) chat.stickers = false            
 if (!('autosticker' in chat)) chat.autosticker = false      
-if (!('audios' in chat)) chat.audios = true               
+if (!('audios' in chat)) chat.audios = false             
 if (!('antiver' in chat)) chat.antiver = false 
 if (!('antiPorn' in chat)) chat.antiPorn = true     
 if (!('antiLink' in chat)) chat.antiLink = false     
@@ -917,11 +917,18 @@ if (!('viewonce' in chat)) chat.viewonce = false
 if (!('modoadmin' in chat)) chat.modoadmin = false    
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('game' in chat)) chat.game = true
-if (!('game2' in chat)) chat.game2 = true
+if (!('game2' in chat)) chat.game2 = false
 if (!('simi' in chat)) chat.simi = false
-if (!('antiTraba' in chat)) chat.antiTraba = true
+if (!('antiTraba' in chat)) chat.antiTraba = true 
+if (!('autorespond' in chat)) chat.autorespond = true 
 if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
+if (!('horarioNsfw' in chat)) { 
+chat.horarioNsfw = {
+inicio: "00:00", 
+fin: "23:59"
+};
+}
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
@@ -937,7 +944,7 @@ modohorny: true,
 stickers: false,
 autosticker: false,
 audios: false,
-antiver: true,
+antiver: false,
 antiPorn: true,
 antiLink: false,
 antiLink2: false,
@@ -956,11 +963,16 @@ viewonce: true,
 modoadmin: false,
 antitoxic: false,
 game: true, 
-game2: true, 
+game2: false, 
 simi: false,
 antiTraba: true,
+autorespond: true, 
 autolevelup: true,
 expired: 0,
+horarioNsfw: {
+inicio: "00:00", 
+fin: "23:59"
+}
 }
 var settings = global.db.data.settings[this.user.jid]
 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
@@ -1213,7 +1225,7 @@ continue
                 }
                 m.isCommand = true
                 let xp = 'exp' in plugin ? parseInt(plugin.exp) : 1 // Ganancia de XP por comando
-                if (xp > 200)
+                if (xp > 9000)
                     m.reply('chirrido -_-') // Hehehe
                 else
 m.exp += xp
@@ -1444,18 +1456,18 @@ console.error(e)
 
 global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
-        rowner: '[❗] Este comando solo puede ser utilizado por un admins del grupo',
-        owner: '[❗] Este comando solo puede ser utilizado por un admins del grupo',
-        mods: '[❗] Este comando solo lo usa ShanBot',
-        premium: '[❗] Este comando solo es para usuarios Premium (VIP)',
-        group: '[❗] Este comando es solo para grupos',
-        private: '[❗] Este comando solo. funciona el privado del bot',
-        admin: '[❗] Este comando solo puede ser utilizado por administradores del grupo',
-        botAdmin: '[❗] Este comando solo se puede usar cuando el bot se convierte en administrador',
+        rowner: '⚠️ Este comando es solo para mi propietario. ¡Lo siento, este es exclusivo! 🔒',
+        owner: '⚠️ Este comando es solo para mi propietario. ¡Lo siento, este es exclusivo! 🔒',
+        mods: '⚠️ Este comando solo lo puedo usar yo. ¡Privilegios de mod! 😘',
+        premium: '⚠️ Este comando es solo para usuarios Premium (VIP). ¡Ser VIP tiene sus beneficios! 🌟',
+        group: '⚠️ Pendejo este comando es solo para grupos.',
+        private: '⚠️ Vamos al privado, este comando solo funciona en el privado del bot. ¡Hablemos en privado! 🤫',
+        admin: '🤨 No eres admins. Solo los admins pueden usar este comando. ¡Necesito a los jefes aquí! 🛡️',
+        botAdmin: '⚠️ haz admin al Bot "YO" para poder usar este comando.',
         unreg: '「NO ESTAS REGISTRADO」\n\nPA NO APARECES EN MI BASE DE DATOS ✋🥸🤚\n\nPara poder usarme escribe el siguente comando\n\nComando: #reg nombre.edad\nEjemplo: #reg elrebelde.21',
         restrict: '[ 🔐 ] Este comando esta desactivado por mi jefe'
     }[type]
-    if (msg) return conn.sendMessage(m.chat, {text: msg,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `ℹ️𝐈𝐍𝐅𝐎 ℹ️`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })
+    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363355261011910@newsletter', serverMessageId: '', newsletterName: 'LoliBot ✨' }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `ℹ️𝐈𝐍𝐅𝐎 ℹ️`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, nna2, md, yt, nn, tiktok].getRandom()}}}, { quoted: m })
 }
 
 const file = global.__filename(import.meta.url, true);

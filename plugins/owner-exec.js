@@ -7,11 +7,9 @@ import { createRequire } from 'module'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const require = createRequire(__dirname)
 
-let handler = async (m, _2, msg, isOwner, pickRandom) => {
-  let mention = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
+let handler = async (m, _2) => {
   let { conn, usedPrefix, noPrefix, args, groupMetadata } = _2
   let _return
-  let name = conn.getName(m.sender)
   let _syntax = ''
   let _text = (/^=/.test(usedPrefix) ? 'return ' : '') + noPrefix
   let old = m.exp * 1
@@ -40,10 +38,9 @@ let handler = async (m, _2, msg, isOwner, pickRandom) => {
   }
 }
 handler.help = ['> ', '=> ']
-handler.tags = ['owner']
-handler.customPrefix = /=?>|~/
+handler.tags = ['advanced']
+handler.customPrefix = /^=?> /
 handler.command = /(?:)/i
-
 handler.rowner = true
 
 export default handler
@@ -53,8 +50,4 @@ class CustomArray extends Array {
     if (typeof args[0] == 'number') return super(Math.min(args[0], 10000))
     else return super(...args)
   }
-}
-
-function pickRandom(list) {
-    return list[Math.floor(Math.random() * list.length)]
 }
